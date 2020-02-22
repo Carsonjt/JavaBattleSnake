@@ -38,7 +38,7 @@ public class Snake {
             port = "8080";
         }
         port(Integer.parseInt(port));
-        get("/", (req, res) -> "Battlesnake documentation can be found attt " + 
+        get("/", (req, res) -> "Battlesnake documentation can be found attttt " + 
             "<a href=\"https://docs.battlesnake.io\">https://docs.battlesnake.io</a>.");
         post("/start", HANDLER::process, JSON_MAPPER::writeValueAsString);
         post("/ping", HANDLER::process, JSON_MAPPER::writeValueAsString);
