@@ -1,12 +1,12 @@
 
-public class Snake {
+public class SnakeObj{
 
 	String id;
 	String name;
 	int health;
 	List<Point> bodyLocs;
 
-	public Snake(String id, String name, int health) {
+	public SnakeObj(String id, String name, int health) {
 		bodyLocs = new ArrayList<Point>();
 		this.id = id;
 		this.name = name;
