@@ -120,14 +120,14 @@ public class Snake {
          */
         public Map<String, String> move(JsonNode moveRequest) {
             Map<String, String> response = new HashMap<>();
-			int turn = jsonNode.at("/turn").asInt();
-			if(turn % 4 = 0)
-				response.put("move", "left");
-			else if(turn % 4 = 1)
-				response.put("move", "up");
-			else if(turn % 4 = 2)
-				response.put("move", "right");
-			else(turn % 4 = 3)
+			//int turn = jsonNode.at("/turn").asInt();
+			//if(turn % 4 = 0)
+			//	response.put("move", "left");
+			//else if(turn % 4 = 1)
+			//	response.put("move", "up");
+			//else if(turn % 4 = 2)
+			//	response.put("move", "right");
+			//else(turn % 4 = 3)
 				response.put("move", "down");
             return response;
         }
