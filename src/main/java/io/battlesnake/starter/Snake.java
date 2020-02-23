@@ -38,8 +38,7 @@ public class Snake {
             port = "8080";
         }
         port(Integer.parseInt(port));
-        get("/", (req, res) -> "Battlesnake documentation can be found at " + 
-            "<a href=\"https://docs.battlesnake.io\">https://docs.battlesnake.io</a>.");
+        get("/", (req, res) -> "Successfully deployed Snake Version 0.01");
         post("/start", HANDLER::process, JSON_MAPPER::writeValueAsString);
         post("/ping", HANDLER::process, JSON_MAPPER::writeValueAsString);
         post("/move", HANDLER::process, JSON_MAPPER::writeValueAsString);
