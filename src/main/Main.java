@@ -19,7 +19,7 @@ import static spark.Spark.get;
  * Just boiler plate code.  See the readme to get started.
  * It follows the spec here: https://github.com/battlesnakeio/docs/tree/master/apis/snake
  */
-public class Snake {
+public class Main {
     private static final ObjectMapper JSON_MAPPER = new ObjectMapper();
     private static final Handler HANDLER = new Handler();
     private static final Logger LOG = LoggerFactory.getLogger(Snake.class);
@@ -120,9 +120,14 @@ public class Snake {
          */
         public Map<String, String> move(JsonNode moveRequest) {
             Map<String, String> response = new HashMap<>();
-			if(moveRequest.get("board.snakes").length == 3)
+			int turn = jsonNode.at("/turn").asInt();
+			if(turn % 4 = 0)
 				response.put("move", "left");
-			else
+			else if(turn % 4 = 1)
+				response.put("move", "up");
+			else if(turn % 4 = 2)
+				response.put("move", "right");
+			else(turn % 4 = 3)
 				response.put("move", "down");
             return response;
         }
