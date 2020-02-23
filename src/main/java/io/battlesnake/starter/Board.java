@@ -1,5 +1,4 @@
 import java.awt.Point;
-import java.io.
 
 public class Board {
 	
