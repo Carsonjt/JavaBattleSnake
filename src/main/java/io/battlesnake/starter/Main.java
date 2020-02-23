@@ -23,7 +23,7 @@ import static spark.Spark.get;
 public class Main {
     private static final ObjectMapper JSON_MAPPER = new ObjectMapper();
     private static final Handler HANDLER = new Handler();
-    private static final Logger LOG = LoggerFactory.getLogger(Snake.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
     /**
      * Main entry point.
