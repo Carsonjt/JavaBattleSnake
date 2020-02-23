@@ -1,3 +1,4 @@
+
 package io.battlesnake.starter;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -38,7 +39,8 @@ public class Snake {
             port = "8080";
         }
         port(Integer.parseInt(port));
-        get("/", (req, res) -> "Successfully deployed Snake Version 0.04");
+        get("/", (req, res) -> "Battlesnake documentation can be found at " + 
+            "<a href=\"https://docs.battlesnake.io\">https://docs.battlesnake.io</a>.");
         post("/start", HANDLER::process, JSON_MAPPER::writeValueAsString);
         post("/ping", HANDLER::process, JSON_MAPPER::writeValueAsString);
         post("/move", HANDLER::process, JSON_MAPPER::writeValueAsString);
@@ -120,15 +122,7 @@ public class Snake {
          */
         public Map<String, String> move(JsonNode moveRequest) {
             Map<String, String> response = new HashMap<>();
-			//int turn = jsonNode.at("/turn").asInt();
-			//if(turn % 4 = 0)
-			//	response.put("move", "left");
-			//else if(turn % 4 = 1)
-			//	response.put("move", "up");
-			//else if(turn % 4 = 2)
-			//	response.put("move", "right");
-			//else(turn % 4 = 3)
-				response.put("move", "down");
+            response.put("move", "right");
             return response;
         }
 
