@@ -5,7 +5,7 @@
     <artifactId>starter-snake-java</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>starter-snake-java</name>
-    <description>2020 Victoria Battlesnake</description>
+    <description>Battlesnake starter snake written in Java!</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -50,7 +50,7 @@
                     <arguments>
                         <argument>-classpath</argument>
                         <classpath/>
-                        <argument>io.battlesnake.starter.Main</argument>
+                        <argument>io.battlesnake.starter.Snake</argument>
                     </arguments>
                 </configuration>
             </plugin>
@@ -94,7 +94,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        io.battlesnake.starter.Main
+                                        io.battlesnake.starter.Snake
                                     </mainClass>
                                 </manifest>
                             </archive>
