@@ -121,7 +121,15 @@ public class Main {
          */
         public Map<String, String> move(JsonNode moveRequest) {
             Map<String, String> response = new HashMap<>();
-            response.put("move", "right");
+			int turn = moveRequest.at("/turn").asInt();
+			if(turn % 4 == 0)
+				response.put("move", "right");
+			else if(turn % 4 == 1)
+				response.put("move", "up");
+			else if(turn % 4 == 2)
+				response.put("move", "left");
+			else
+				response.put("move", "down");
             return response;
         }
 
