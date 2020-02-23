@@ -1,4 +1,4 @@
-io\battlesnake\starter\Snake.class
+io\battlesnake\starter\Main$Handler.class
 Board.class
+io\battlesnake\starter\Main.class
 SnakeObj.class
-io\battlesnake\starter\Snake$Handler.class
