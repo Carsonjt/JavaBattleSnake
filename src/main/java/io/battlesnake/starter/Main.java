@@ -39,7 +39,7 @@ public class Main {
             port = "8080";
         }
         port(Integer.parseInt(port));
-        get("/", (req, res) -> "Successfully Deployed Snake V0.01");
+        get("/", (req, res) -> "Successfully Deployed Snake V0.02");
         post("/start", HANDLER::process, JSON_MAPPER::writeValueAsString);
         post("/ping", HANDLER::process, JSON_MAPPER::writeValueAsString);
         post("/move", HANDLER::process, JSON_MAPPER::writeValueAsString);
