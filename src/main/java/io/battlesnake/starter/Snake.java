@@ -38,7 +38,7 @@ public class Snake {
             port = "8080";
         }
         port(Integer.parseInt(port));
-        get("/", (req, res) -> "Successfully deployed Snake Version 0.02");
+        get("/", (req, res) -> "Successfully deployed Snake Version 0.03");
         post("/start", HANDLER::process, JSON_MAPPER::writeValueAsString);
         post("/ping", HANDLER::process, JSON_MAPPER::writeValueAsString);
         post("/move", HANDLER::process, JSON_MAPPER::writeValueAsString);
@@ -120,10 +120,10 @@ public class Snake {
          */
         public Map<String, String> move(JsonNode moveRequest) {
             Map<String, String> response = new HashMap<>();
-			if(moveRequest.get("board.snakes.length").asInt() == 3)
+			if(moveRequest.get("board.snakes").length == 3)
 				response.put("move", "left");
 			else
-				response.put("move", "right");
+				response.put("move", "down");
             return response;
         }
 
