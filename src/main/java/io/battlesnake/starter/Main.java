@@ -20,7 +20,7 @@ import static spark.Spark.get;
  * Just boiler plate code.  See the readme to get started.
  * It follows the spec here: https://github.com/battlesnakeio/docs/tree/master/apis/snake
  */
-public class Snake {
+public class Main {
     private static final ObjectMapper JSON_MAPPER = new ObjectMapper();
     private static final Handler HANDLER = new Handler();
     private static final Logger LOG = LoggerFactory.getLogger(Snake.class);
@@ -39,8 +39,7 @@ public class Snake {
             port = "8080";
         }
         port(Integer.parseInt(port));
-        get("/", (req, res) -> "Battlesnake documentation can be found at " + 
-            "<a href=\"https://docs.battlesnake.io\">https://docs.battlesnake.io</a>.");
+        get("/", (req, res) -> "Successfully Deployed Snake V0.01");
         post("/start", HANDLER::process, JSON_MAPPER::writeValueAsString);
         post("/ping", HANDLER::process, JSON_MAPPER::writeValueAsString);
         post("/move", HANDLER::process, JSON_MAPPER::writeValueAsString);
