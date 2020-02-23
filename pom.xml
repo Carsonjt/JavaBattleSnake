@@ -5,7 +5,7 @@
     <artifactId>starter-snake-java</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>starter-snake-java</name>
-    <description>Battlesnake starter snake written in Java!</description>
+    <description>2020 Victoria BattleSnake</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
