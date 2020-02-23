@@ -120,9 +120,9 @@ public class Snake {
          */
         public Map<String, String> move(JsonNode moveRequest) {
             Map<String, String> response = new HashMap<>();
-			if(moveRequest.get("board.snakes.length") == 3)
-				response.put("move", "left");
-			else
+			//if(moveRequest.get("board.snakes.length") == 3)
+			//	response.put("move", "left");
+			//else
 				response.put("move", "right");
             return response;
         }
