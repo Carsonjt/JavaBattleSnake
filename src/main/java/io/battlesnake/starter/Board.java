@@ -44,7 +44,7 @@ public class Board {
 		if(snakes.length == 0) {
 			snakes = new Snake[1];
 			snakes[0] = s;
-		else {
+		} else {
 			Snake[] newSnakes = new Snake[snakes.length + 1];
 			for(int i = 0; i < snakes.length ; i++) {
 				newSnakes[i] = snakes[i];
