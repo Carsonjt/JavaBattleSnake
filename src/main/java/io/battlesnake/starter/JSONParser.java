@@ -11,7 +11,7 @@ public class JSONParser {
 		Board board = new Board(json.at("/board/height").asInt(), json.at("/board/width").asInt(), json.at("/turn").asInt());
 	
 	
-		JsonNode snakesNode = json.at("/board/snakes")
+		JsonNode snakesNode = json.at("/board/snakes");
 		Iterator<String> snakes = snakesNode.fieldNames();
 		System.out.println("0");
 		while(snakes.hasNext()) {
