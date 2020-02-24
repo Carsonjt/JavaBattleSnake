@@ -8,7 +8,7 @@ import java.awt.Point;
 public class JSONParser {
 	
 	public static Board makeBoard(JsonNode json) {
-		Board board = new Board(json.at("/board/height").asInt(), json.at("/board/width").asInt(), json.at("/turn").asInt());
+		Board board = new Board(json.at("/board/height").asInt() - 1, json.at("/board/width").asInt() - 1, json.at("/turn").asInt());
 		
 		json.at("/board/snakes").forEach(snake -> {
 			Snake s = new Snake(snake.at("/id").asText(), snake.at("/name").asText(), snake.at("/health").asInt());
