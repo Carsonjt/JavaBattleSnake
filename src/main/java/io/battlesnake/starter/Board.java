@@ -15,7 +15,7 @@ public class Board {
 		this.height = height;
 		this.width = width;
 		this.turn = turn;
-		snakes = [];
+		snakes = {};
 	}
 	public int getTurn() {
 		return turn;
