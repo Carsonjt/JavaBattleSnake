@@ -127,9 +127,7 @@ public class Main {
          */
         public Map<String, String> move(JsonNode req) {
             Map<String, String> response = new HashMap<>();
-			int turn = req.at("/turn").asInt();
-			Board board = JSONParser.makeBoard(req);
-			response.put("move", MoverHead.calcMove(board));
+			response.put("move", MoverHead.calcMove(JSONParser.makeBoard(req)));
 			return response;
         }
 

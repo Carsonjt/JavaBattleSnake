@@ -29,7 +29,7 @@ public class JSONParser {
 		}
 		
 		
-		JsonNode selfSnake = json.get("/you");
+		/*JsonNode selfSnake = json.get("/you");
 		Snake self = new Snake(selfSnake.at("/id").asText(), selfSnake.at("/name").asText(), selfSnake.at("/health").asInt());
 		board.setSelf(self);
 		Iterator<String> bodies = selfSnake.at("/body").fieldNames();
@@ -42,6 +42,6 @@ public class JSONParser {
 		self.setTail(self.bodyLocs[self.bodyLocs.length - 1]);
 		
 		return board;
-		
+		*/
 	}	
 }
