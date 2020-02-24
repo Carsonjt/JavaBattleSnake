@@ -40,8 +40,8 @@ public class JSONParser {
 		self.setHead(self.bodyLocs[0]);
 		self.setNeck(self.bodyLocs[1]);
 		self.setTail(self.bodyLocs[self.bodyLocs.length - 1]);
-		
-		return board;
 		*/
+		return board;
+		
 	}	
 }
