@@ -20,7 +20,7 @@ public class JSONParser {
 		}
 		System.out.println("LOOP TEST");
 		for(Snake sss: board.snakes) {
-			System.out.printlnt(sss.name);
+			System.out.println(sss.name);
 		}
 		
 		/*JsonNode selfSnake = json.get("/you");
