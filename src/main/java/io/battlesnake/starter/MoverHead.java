@@ -24,7 +24,7 @@ public class MoverHead {
 			if(b.snakes[0].bodyLoc[0].getX() == 0)
 				return "right";
 			return "down";
-			
+		return "down";
 	}
 	
 }
