@@ -8,6 +8,9 @@ public class Snake{
 	String name;
 	int health;
 	Point[] bodyLocs;
+	Point head;
+	Point tail;
+	Point neck;
 
 	public Snake(String id, String name, int health) {
 		this.id = id;
@@ -29,5 +32,23 @@ public class Snake{
 	}
 	public void addBodyLoc(Point p) {
 		return;
+	}
+	public void setHead(Point head) {
+		this.head = head;
+	}
+	public void setTail(Point tail) {
+		this.tail = tail;
+	}
+	public void setNeck(Point neck) {
+		this.neck = neck;
+	}
+	public Point getHead() {
+		return head;
+	}
+	public Point getNeck() {
+		return neck;
+	}
+	public Point getTail() {
+		return tail;
 	}
 }
