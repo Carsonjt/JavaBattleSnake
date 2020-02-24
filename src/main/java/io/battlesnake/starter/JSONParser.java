@@ -15,8 +15,13 @@ public class JSONParser {
 		while(snakes.hasNext()) {
 			JsonNode snake = json.get(snakes.next());
 			board.addSnake(new Snake(snake.at("/id").asText(), snake.at("/name").asText(), snake.at("/health").asInt()));
+			System.out.println("SNAKE ADDED:" + board);
+	
 		}
-		System.out.println("TESTING PRINT");
+		System.out.println("LOOP TEST");
+		for(Snake sss: board.snakes) {
+			System.out.printlnt(sss.name);
+		}
 		
 		/*JsonNode selfSnake = json.get("/you");
 		Snake self = new Snake(selfSnake.at("/id").asText(), selfSnake.at("/name").asText(), selfSnake.at("/health").asInt());

@@ -32,9 +32,21 @@ public class Board {
 		return snakes;
 	}
 	public void addFoodLoc(Point p) {
+		Point[] newFoodLocs = new Point[foodLocs.length + 1];
+		for(int i = 0; i < foodLocs.length ; i++) {
+			newFoodLocs[i] = foodLocs[i];
+		}
+		newFoodLocs[newFoodLocs.length - 1] = p;
+		this.foodLocs = newFoodLocs;
 		return;
 	}
 	public void addSnake(Snake s) {
+		Snake[] newSnakes = new Snake[snakes.length + 1];
+		for(int i = 0; i < snakes.length ; i++) {
+			newSnakes[i] = snakes[i];
+		}
+		newSnakes[newSnakes.length - 1] = s;
+		this.snakes = newSnakes;
 		return;
 	}
 	public void setSelf(Snake self) {
