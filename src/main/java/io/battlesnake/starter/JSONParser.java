@@ -20,7 +20,7 @@ public class JSONParser {
 				System.out.println("ADDED BODY");
 			});
 	
-		board.addSnake(snake);
+		board.addSnake(s);
 		System.out.println("AFTER");
 		});
 		System.out.println("END");
