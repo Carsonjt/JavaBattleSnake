@@ -17,10 +17,10 @@ public class MoverHead {
 			else
 				return "down";*/
 			
-			//if(b.height == b.self.head.getY())
-			//	return "right";
+			if(b.height == b.snakes[0].head.getY())
+				return "right";
 			
-			return "right";
+			return "down";
 			
 	}
 	
