@@ -17,8 +17,9 @@ public class MoverHead {
 			else
 				return "down";*/
 			
-			if(b.height == b.self.head.getY())
-				return "right";
+			//if(b.height == b.self.head.getY())
+			//	return "right";
+			
 			return "down";
 			
 	}
