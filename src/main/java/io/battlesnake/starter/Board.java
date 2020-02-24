@@ -41,7 +41,7 @@ public class Board {
 		return;
 	}
 	public void addSnake(Snake s) {
-		if(snakes.length == 0) {
+	/*	if(snakes.length == 0) {
 			snakes = new Snake[1];
 			snakes[0] = s;
 		} else {
@@ -51,7 +51,7 @@ public class Board {
 			}
 			newSnakes[newSnakes.length - 1] = s;
 			this.snakes = newSnakes;
-		}
+		}*/
 		return;
 	}
 	public void setSelf(Snake self) {
