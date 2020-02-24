@@ -16,8 +16,9 @@ public class JSONParser {
 			System.out.println("ADDED SNAKE: " + s.name);
 			
 			snake.at("/body").forEach(body -> {
-				s.addBodyLoc(new Point(body.at("/x").asInt(), body.at("/y").asInt()));
-				System.out.println("ADDED BODY");
+				Point p = new Point(body.at("/x").asInt(), body.at("/y").asInt());
+				s.addBodyLoc(p);
+				System.out.println("ADDED BODY: " + p.getX() + " " + p.getY());
 			});
 	
 			board.addSnake(s);
