@@ -13,7 +13,7 @@ public class JSONParser {
 	
 		JsonNode snakesNode = json.at("/board/snakes");
 		Iterator<String> snakes = snakesNode.fieldNames();
-		System.out.println("0");
+		System.out.println("INTERATOR TO STRING" + snakes);
 		while(snakes.hasNext()) {
 			JsonNode snake = json.get(snakes.next());
 			System.out.println("1");
