@@ -20,7 +20,7 @@ public class MoverHead {
 			//if(b.height == b.self.head.getY())
 			//	return "right";
 			
-			return "down";
+			return "right";
 			
 	}
 	
