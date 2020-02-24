@@ -4,14 +4,19 @@ import java.awt.Point;
 
 public class Board {
 	
+	int turn;
 	int height;
 	int width;
 	Point[] foodLocs;
 	Snake[] snakes;
 
-	public Board(int height, int width) {
+	public Board(int height, int width, int turn) {
 		this.height = height;
 		this.width = width;
+		this.turn = turn;
+	}
+	public int getTurn() {
+		return turn;
 	}
 	public int getHeight() {
 		return height;

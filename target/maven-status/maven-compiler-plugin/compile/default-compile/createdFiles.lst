@@ -1,5 +1,6 @@
 io\battlesnake\starter\JSONParser.class
 io\battlesnake\starter\Snake.class
 io\battlesnake\starter\Main$Handler.class
+io\battlesnake\starter\MoverHead.class
 io\battlesnake\starter\Board.class
 io\battlesnake\starter\Main.class
