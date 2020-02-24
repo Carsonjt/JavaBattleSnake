@@ -13,15 +13,15 @@ public class JSONParser {
 		
 		json.at("/board/snakes").forEach(snake -> {
 			Snake s = new Snake(snake.at("/id").asText(), snake.at("/name").asText(), snake.at("/health").asInt());
-			System.out.println("ADDED SNAKE");
+			System.out.println("ADDED SNAKE: " + s.name);
 			
 			snake.at("/body").forEach(body -> {
 				s.addBodyLoc(new Point(body.at("/x").asInt(), body.at("/y").asInt()));
 				System.out.println("ADDED BODY");
 			});
 	
-		board.addSnake(s);
-		System.out.println("AFTER");
+			board.addSnake(s);
+			System.out.println("AFTER");
 		});
 		System.out.println("END");
 		return board;
