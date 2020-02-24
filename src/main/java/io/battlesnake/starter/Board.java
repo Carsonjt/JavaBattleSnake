@@ -9,6 +9,7 @@ public class Board {
 	int width;
 	Point[] foodLocs;
 	Snake[] snakes;
+	Snake self;
 
 	public Board(int height, int width, int turn) {
 		this.height = height;
@@ -35,5 +36,8 @@ public class Board {
 	}
 	public void addSnake(Snake s) {
 		return;
+	}
+	public void setSelf(Snake self) {
+		this.self = self;
 	}
 }
