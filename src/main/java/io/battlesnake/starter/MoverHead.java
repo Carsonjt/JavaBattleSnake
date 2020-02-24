@@ -19,7 +19,7 @@ public class MoverHead {
 			
 			//if(b.height == b.snakes[0].head.getY())
 			//	return "right";
-			
+			System.out.println("FINAL " + b.snakes[0].name);
 			return "down";
 			
 	}
