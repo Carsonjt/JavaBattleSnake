@@ -31,12 +31,12 @@ public class Snake{
 		return bodyLocs;
 	}
 	public void addBodyLoc(Point p) {
-		Point[] newBodyLocs = new Point[bodyLocs.length + 1];
-		for(int i = 0; i < bodyLocs.length ; i++) {
-			newBodyLocs[i] = bodyLocs[i];
-		}
-		newBodyLocs[newBodyLocs.length - 1] = p;
-		this.bodyLocs = newBodyLocs;
+		//Point[] newBodyLocs = new Point[bodyLocs.length + 1];
+		//for(int i = 0; i < bodyLocs.length ; i++) {
+		//	newBodyLocs[i] = bodyLocs[i];
+		//}
+		//newBodyLocs[newBodyLocs.length - 1] = p;
+		//this.bodyLocs = newBodyLocs;
 		return;
 	}
 	public void setHead(Point head) {
