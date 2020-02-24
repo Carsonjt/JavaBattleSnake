@@ -8,7 +8,7 @@ public class MoverHead {
 	
 	public static String calcMove(Board b) {
 		
-		if(b.height == b.snakes[0].bodyLoc[0].getY())
+		if(b.snakes[0].bodyLoc[0].getY() == 0)
 			return "right";
 		return "down";
 			
