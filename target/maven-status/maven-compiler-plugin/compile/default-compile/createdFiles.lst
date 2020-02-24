@@ -1,4 +1,5 @@
-Snake.class
+io\battlesnake\starter\JSONParser.class
+io\battlesnake\starter\Snake.class
 io\battlesnake\starter\Main$Handler.class
-Board.class
+io\battlesnake\starter\Board.class
 io\battlesnake\starter\Main.class

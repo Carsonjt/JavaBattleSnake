@@ -15,6 +15,11 @@ import static spark.Spark.port;
 import static spark.Spark.post;
 import static spark.Spark.get;
 
+import io.battlesnake.starter.JSONParser;
+import io.battlesnake.starter.Board;
+import io.battlesnake.starter.Snake;
+
+
 /**
  * Snake server that deals with requests from the snake engine.
  * Just boiler plate code.  See the readme to get started.
@@ -119,9 +124,10 @@ public class Main {
          * @param moveRequest a map containing the JSON sent to this snake. See the spec for details of what this contains.
          * @return a response back to the engine containing snake movement values.
          */
-        public Map<String, String> move(JsonNode moveRequest) {
+        public Map<String, String> move(JsonNode req) {
             Map<String, String> response = new HashMap<>();
-			int turn = moveRequest.at("/turn").asInt();
+			int turn = req.at("/turn").asInt();
+			//Board board = JSONParser.makeBoard(req);
 			if(turn % 4 == 0)
 				response.put("move", "right");
 			else if(turn % 4 == 1)

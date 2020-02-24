@@ -1,3 +1,5 @@
+package io.battlesnake.starter;
+
 import java.awt.Point;
 
 public class Snake{

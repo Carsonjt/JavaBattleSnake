@@ -1,3 +1,5 @@
+package io.battlesnake.starter;
+
 import java.awt.Point;
 
 public class Board {
@@ -6,7 +8,7 @@ public class Board {
 	int width;
 	Point[] foodLocs;
 	Snake[] snakes;
-	
+
 	public Board(int height, int width) {
 		this.height = height;
 		this.width = width;
