@@ -15,6 +15,7 @@ public class Board {
 		this.height = height;
 		this.width = width;
 		this.turn = turn;
+		snakes = [];
 	}
 	public int getTurn() {
 		return turn;
@@ -41,17 +42,16 @@ public class Board {
 		return;
 	}
 	public void addSnake(Snake s) {
-	/*	if(snakes.length == 0) {
-			snakes = new Snake[1];
-			snakes[0] = s;
-		} else {
-			Snake[] newSnakes = new Snake[snakes.length + 1];
+		Snake[] newSnakes = new Snake[snakes.length + 1];
+		if(newSnakes.length == 1)
+			newSnakes[0] = s;
+		else {
 			for(int i = 0; i < snakes.length ; i++) {
 				newSnakes[i] = snakes[i];
 			}
 			newSnakes[newSnakes.length - 1] = s;
-			this.snakes = newSnakes;
-		}*/
+		}
+		this.snakes = newSnakes;
 		return;
 	}
 	public void setSelf(Snake self) {
