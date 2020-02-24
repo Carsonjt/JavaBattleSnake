@@ -11,14 +11,17 @@ public class JSONParser {
 		Board board = new Board(json.at("/board/height").asInt(), json.at("/board/width").asInt(), json.at("/turn").asInt());
 	
 	
-		Iterator<String> snakes = json.at("/board/snakes").fieldNames();
+		JsonNode snakesNode = json.at("/board/snakes")
+		Iterator<String> snakes = snakesNode.fieldNames();
+		System.out.println("0");
 		while(snakes.hasNext()) {
 			JsonNode snake = json.get(snakes.next());
+			System.out.println("1");
 			board.addSnake(new Snake(snake.at("/id").asText(), snake.at("/name").asText(), snake.at("/health").asInt()));
-			System.out.println("SNAKE ADDED:" + board);
+			System.out.println("2");
 	
 		}
-		System.out.println("LOOP TEST");
+		System.out.println("3");
 		//for(Snake sss: board.snakes) {
 		//	System.out.println(sss.name);
 		//}
