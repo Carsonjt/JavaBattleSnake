@@ -7,7 +7,7 @@ public class Snake{
 	String id;
 	String name;
 	int health;
-	Point[] bodyLocs;
+	Point[] bodyLoc;
 	Point head;
 	Point tail;
 	Point neck;
@@ -16,6 +16,7 @@ public class Snake{
 		this.id = id;
 		this.name = name;
 		this.health = health;
+		bodyLoc = new Point[0];
 	}
 
 	public String getID() {
@@ -27,16 +28,20 @@ public class Snake{
 	public int getHealth() {
 		return health;
 	}
-	public Point[] getBodyLocs() {
-		return bodyLocs;
+	public Point[] getBodyLoc() {
+		return bodyLoc;
 	}
 	public void addBodyLoc(Point p) {
-		//Point[] newBodyLocs = new Point[bodyLocs.length + 1];
-		//for(int i = 0; i < bodyLocs.length ; i++) {
-		//	newBodyLocs[i] = bodyLocs[i];
-		//}
-		//newBodyLocs[newBodyLocs.length - 1] = p;
-		//this.bodyLocs = newBodyLocs;
+		Point[] newBodyLoc = new Point[bodyLoc.length + 1];
+		if(newBodyLoc.length == 1)
+			newBodyLoc[0] = p;
+		else {
+			for(int i = 0; i < bodyLoc.length ; i++) {
+				newBodyLoc[i] = bodyLoc[i];
+			}
+			newBodyLoc[newBodyLoc.length - 1] = p;
+		}
+		this.bodyLoc = newBodyLoc;
 		return;
 	}
 	public void setHead(Point head) {

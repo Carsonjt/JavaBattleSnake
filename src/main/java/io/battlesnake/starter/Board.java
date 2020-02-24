@@ -7,7 +7,7 @@ public class Board {
 	int turn;
 	int height;
 	int width;
-	Point[] foodLocs;
+	Point[] foodLoc;
 	Snake[] snakes;
 	Snake self;
 
@@ -16,6 +16,7 @@ public class Board {
 		this.width = width;
 		this.turn = turn;
 		snakes = new Snake[0];
+		foodLoc = new Point[0];
 	}
 	public int getTurn() {
 		return turn;
@@ -26,19 +27,23 @@ public class Board {
 	public int getWidth() {
 		return width;
 	}
-	public Point[] getFoodLocs() {
-		return foodLocs;
+	public Point[] getFoodLoc() {
+		return foodLoc;
 	}
 	public Snake[] getSnakes() {
 		return snakes;
 	}
 	public void addFoodLoc(Point p) {
-		Point[] newFoodLocs = new Point[foodLocs.length + 1];
-		for(int i = 0; i < foodLocs.length ; i++) {
-			newFoodLocs[i] = foodLocs[i];
+		Point[] newFoodLoc = new Point[foodLoc.length + 1];
+		if(newFoodLoc.length == 1)
+			newFoodLoc[0] = p;
+		else {
+			for(int i = 0; i < foodLoc.length ; i++) {
+				newFoodLoc[i] = foodLoc[i];
+			}
+			newFoodLoc[newFoodLoc.length - 1] = p;
 		}
-		newFoodLocs[newFoodLocs.length - 1] = p;
-		this.foodLocs = newFoodLocs;
+		this.foodLoc = newFoodLoc;
 		return;
 	}
 	public void addSnake(Snake s) {
