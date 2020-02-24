@@ -14,20 +14,9 @@ public class JSONParser {
 		Iterator<String> snakes = json.at("/board/snakes").fieldNames();
 		while(snakes.hasNext()) {
 			JsonNode snake = json.get(snakes.next());
-			Snake s = new Snake(snake.at("/id").asText(), snake.at("/name").asText(), snake.at("/health").asInt());
-			board.addSnake(s);
-			
-			
-			Iterator<String> bodies = snake.at("/body").fieldNames();
-			while(bodies.hasNext()) {
-				JsonNode body = snake.get(bodies.next());
-				s.addBodyLoc(new Point(body.at("/x").asInt(), body.at("/y").asInt()));
-			}
-			s.setHead(s.bodyLocs[0]);
-			s.setNeck(s.bodyLocs[1]);
-			s.setTail(s.bodyLocs[s.bodyLocs.length - 1]);
+			board.addSnake(new Snake(snake.at("/id").asText(), snake.at("/name").asText(), snake.at("/health").asInt()));
 		}
-		
+		System.out.println("TESTING PRINT");
 		
 		/*JsonNode selfSnake = json.get("/you");
 		Snake self = new Snake(selfSnake.at("/id").asText(), selfSnake.at("/name").asText(), selfSnake.at("/health").asInt());
