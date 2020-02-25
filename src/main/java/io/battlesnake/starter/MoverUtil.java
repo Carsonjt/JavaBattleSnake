@@ -17,7 +17,7 @@ public class MoverUtil {
 		for(Snake s: MoverHead.board.snakes) {
 			if(s.isAt(p)) return false;
 		}
-		if(board.self.isAt(p)) return false;
+		if(board.self.isAt(p)) return true
 		return true;
 	}
 	
