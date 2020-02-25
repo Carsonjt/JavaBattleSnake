@@ -62,4 +62,11 @@ public class Snake{
 	public Point getTail() {
 		return tail;
 	}
+	public boolean isAt(Point p) {
+		for(Point body: bodyLoc) {
+			if(body.equals(p))
+				return true;
+		}
+		return false;
+	}
 }
