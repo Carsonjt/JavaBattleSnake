@@ -61,7 +61,7 @@ public class MoverHead {
 			moves.add("up");
 		
 		//DOWN
-		Point down = new Point((int) board.self.bodyLoc[0].getX() - 1, (int) board.self.bodyLoc[0].getY() + 1);
+		Point down = new Point((int) board.self.bodyLoc[0].getX(), (int) board.self.bodyLoc[0].getY() + 1);
 		if(MoverUtil.isValid(down))
 			moves.add("down");
 		
