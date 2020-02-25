@@ -32,17 +32,17 @@ public class Snake{
 		return bodyLoc;
 	}
 	public void addBodyLoc(Point p) {
-		System.out.println("bodyLOC SIZE: " + bodyLoc.length);
 		Point[] newBodyLoc = new Point[bodyLoc.length + 1];
-		if(newBodyLoc.length == 1)
-			newBodyLoc[0] = p;
-		else {
-			for(int i = 0; i < bodyLoc.length ; i++) {
-				newBodyLoc[i] = bodyLoc[i];
-			}
-			newBodyLoc[newBodyLoc.length - 1] = p;
+		for(int i = 0; i < bodyLoc.length ; i++) {
+			newBodyLoc[i] = bodyLoc[i];
 		}
+		newBodyLoc[newBodyLoc.length - 1] = p;
 		this.bodyLoc = newBodyLoc;
+		
+		System.out.println("OUTPUT: (LENGTH =" + bodyLoc.length + ")");
+		for(int i = 0; i < bodyLoc.length; i++) {
+			System.out.println(bodyLoc[i]);
+		}
 		return;
 	}
 	public void setHead(Point head) {
@@ -65,13 +65,12 @@ public class Snake{
 	}
 	public boolean isAt(Point p) {
 			System.out.println("NEW POINT");
-			System.out.println("BOD 1/2/3" + bodyLoc[0] + bodyLoc[1] + bodyLoc[2]);
-		for(int i = 0; i < bodyLoc.length; i++) {
-			System.out.println("BODY: " + bodyLoc[i]);
-			if(bodyLoc[i].equals(p)) {
-				return true;
+			for(int i = 0; i < bodyLoc.length; i++) {
+				System.out.println("BODY: " + bodyLoc[i]);
+				if(bodyLoc[i].equals(p)) {
+					return true;
+				}
 			}
-		}
 		return false;
 	}
 }
