@@ -63,8 +63,10 @@ public class Snake{
 		return tail;
 	}
 	public boolean isAt(Point p) {
+		System.out.println("CHECK IF AT");
 		for(Point body: bodyLoc) {
 			if(body.equals(p))
+				System.out.println("YES IS AT");
 				return true;
 		}
 		return false;
