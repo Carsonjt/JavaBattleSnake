@@ -39,7 +39,7 @@ public class Snake{
 			for(int i = 0; i < bodyLoc.length ; i++) {
 				newBodyLoc[i] = bodyLoc[i];
 			}
-			newBodyLoc[newBodyLoc.length - 1] = p;
+			newBodyLoc[newBodyLoc.length] = p;
 		}
 		this.bodyLoc = newBodyLoc;
 		return;
