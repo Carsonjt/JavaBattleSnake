@@ -65,9 +65,9 @@ public class Snake{
 	public boolean isAt(Point p) {
 			System.out.println("NEW POINT");
 			System.out.println("POINT " + p);
-		for(Point body: bodyLoc) {
-			System.out.println("BODY " + body);
-			if(body.equals(p)) {
+		for(int i = 0; i < bodyLoc.length; i++) {
+			System.out.println("BODY " + bodyLoc[i]);
+			if(bodyloc[i].equals(p)) {
 				return true;
 			}
 		}

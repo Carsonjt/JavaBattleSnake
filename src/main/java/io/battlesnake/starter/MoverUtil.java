@@ -13,11 +13,12 @@ public class MoverUtil {
 		if(p.getY() < 0) return false;
 		if(p.getX() > board.getWidth()) return false;
 		if(p.getY() > board.getHeight()) return false;
+		if(board.self.isAt(p)) return false;
 		
 		for(Snake s: MoverHead.board.snakes) {
 			if(s.isAt(p)) return false;
 		}
-		if(board.self.isAt(p)) return false;
+		
 		return true;
 	}
 	
