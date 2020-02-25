@@ -40,6 +40,7 @@ public class MoverHead {
 		return "down";*/
 		Random random = new Random();
 		int index = random.nextInt(openMoves.size());
+		System.out.println(openMoves);
 		return openMoves.get(index);
 	}
 	

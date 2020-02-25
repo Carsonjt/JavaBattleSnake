@@ -20,9 +20,7 @@ public class JSONParser {
 	
 			if(json.at("/you/id").asText().equals(s.id)) {
 				board.self = s;
-				System.out.println("ADDED SELF");
 			} else {
-				System.out.println("ADDED SNAKE");
 				board.addSnake(s);
 			}
 		});
