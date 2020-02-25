@@ -18,7 +18,13 @@ public class JSONParser {
 				s.addBodyLoc(p);
 			});
 	
-			board.addSnake(s);
+			if(json.at("you/id").asText().equals(s.id)) {
+				board.self = s;
+				System.out.println("ADDED SELF");
+			} else {
+				System.out.println("ADDED SNAKE");
+				board.addSnake(s);
+			}
 		});
 		return board;
 		
