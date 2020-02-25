@@ -16,7 +16,7 @@ public class Snake{
 		this.id = id;
 		this.name = name;
 		this.health = health;
-		bodyLoc = new Point[0];
+		bodyLoc = new Point[1];
 	}
 
 	public String getID() {
@@ -39,7 +39,7 @@ public class Snake{
 			for(int i = 0; i < bodyLoc.length ; i++) {
 				newBodyLoc[i] = bodyLoc[i];
 			}
-			newBodyLoc[newBodyLoc.length] = p;
+			newBodyLoc[newBodyLoc.length - 1] = p;
 		}
 		this.bodyLoc = newBodyLoc;
 		return;
