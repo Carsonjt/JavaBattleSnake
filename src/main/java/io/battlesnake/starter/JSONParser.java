@@ -18,7 +18,7 @@ public class JSONParser {
 				s.addBodyLoc(p);
 			});
 	
-			if(json.at("you/id").asText().equals(s.id)) {
+			if(json.at("/you/id").asText().equals(s.id)) {
 				board.self = s;
 				System.out.println("ADDED SELF");
 			} else {
