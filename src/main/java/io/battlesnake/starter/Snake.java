@@ -67,7 +67,7 @@ public class Snake{
 			System.out.println("POINT " + p);
 		for(int i = 0; i < bodyLoc.length; i++) {
 			System.out.println("BODY " + bodyLoc[i]);
-			if(bodyloc[i].equals(p)) {
+			if(bodyLoc[i].equals(p)) {
 				return true;
 			}
 		}
