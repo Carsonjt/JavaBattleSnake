@@ -16,7 +16,7 @@ public class Snake{
 		this.id = id;
 		this.name = name;
 		this.health = health;
-		bodyLoc = new Point[1];
+		bodyLoc = new Point[0];
 	}
 
 	public String getID() {
@@ -32,6 +32,7 @@ public class Snake{
 		return bodyLoc;
 	}
 	public void addBodyLoc(Point p) {
+		System.out.println("bodyLOC SIZE: " + bodyLoc.length);
 		Point[] newBodyLoc = new Point[bodyLoc.length + 1];
 		if(newBodyLoc.length == 1)
 			newBodyLoc[0] = p;
