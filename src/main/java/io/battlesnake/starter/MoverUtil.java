@@ -6,7 +6,7 @@ import io.battlesnake.starter.Board;
 
 public class MoverUtil {
 	
-	Board board = MoverHead.board;
+	static Board board = MoverHead.board;
 	
 	public static boolean isValid(Point p) {
 		if(p.getX() < 0) return false;
