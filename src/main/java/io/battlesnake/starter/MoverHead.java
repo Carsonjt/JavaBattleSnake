@@ -7,11 +7,9 @@ import io.battlesnake.starter.Snake;
 import io.battlesnake.starter.Board;
 
 public class MoverHead {
-	static Board board;
-	
+
 	public static String calcMove(Board b) {
-		board = b;
-		ArrayList<String> openMoves = calcPossibleMoves();
+		ArrayList<String> openMoves = calcPossibleMoves(b);
 		
 		
 		/*
@@ -44,25 +42,25 @@ public class MoverHead {
 		return openMoves.get(index);
 	}
 	
-	public static ArrayList<String> calcPossibleMoves() {
+	public static ArrayList<String> calcPossibleMoves(Board b) {
 		ArrayList<String> moves = new ArrayList<String>();
-		Point left = new Point((int) board.self.bodyLoc[0].getX() - 1, (int) board.self.bodyLoc[0].getY());
-		if(MoverUtil.isValid(left))
+		Point left = new Point((int) b.self.bodyLoc[0].getX() - 1, (int) b.self.bodyLoc[0].getY());
+		if(MoverUtil.isValid(b, left))
 			moves.add("left");
 		
 		//RIGHT
-		Point right = new Point((int) board.self.bodyLoc[0].getX() + 1, (int) board.self.bodyLoc[0].getY());
-		if(MoverUtil.isValid(right))
+		Point right = new Point((int) b.self.bodyLoc[0].getX() + 1, (int) b.self.bodyLoc[0].getY());
+		if(MoverUtil.isValid(b, right))
 			moves.add("right");
 		
 		//UP
-		Point up = new Point((int) board.self.bodyLoc[0].getX(), (int) board.self.bodyLoc[0].getY() - 1);
-		if(MoverUtil.isValid(up))
+		Point up = new Point((int) b.self.bodyLoc[0].getX(), (int) b.self.bodyLoc[0].getY() - 1);
+		if(MoverUtil.isValid(b, up))
 			moves.add("up");
 		
 		//DOWN
-		Point down = new Point((int) board.self.bodyLoc[0].getX(), (int) board.self.bodyLoc[0].getY() + 1);
-		if(MoverUtil.isValid(down))
+		Point down = new Point((int) b.self.bodyLoc[0].getX(), (int) b.self.bodyLoc[0].getY() + 1);
+		if(MoverUtil.isValid(b, down))
 			moves.add("down");
 		
 		return moves;
