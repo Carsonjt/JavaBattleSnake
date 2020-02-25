@@ -6,16 +6,18 @@ import io.battlesnake.starter.Board;
 
 public class MoverUtil {
 	
+	Board board = MoverHead.board;
+	
 	public static boolean isValid(Point p) {
 		if(p.getX() < 0) return false;
 		if(p.getY() < 0) return false;
-		if(p.getX() > MoverHead.board.getWidth()) return false;
-		if(p.getY() > MoverHead.board.getHeight()) return false;
+		if(p.getX() > board.getWidth()) return false;
+		if(p.getY() > board.getHeight()) return false;
 		
 		for(Snake s: MoverHead.board.snakes) {
 			if(s.isAt(p)) return false;
 		}
-		if(self.isAt(p)) return false;
+		if(board.self.isAt(p)) return false;
 		return true;
 	}
 	
