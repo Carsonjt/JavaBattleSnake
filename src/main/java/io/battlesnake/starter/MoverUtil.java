@@ -25,29 +25,29 @@ public class MoverUtil {
 	}
 	
 	public static boolean isOnBorder(Board b, Point p) {
-		if(p.getX() = 0) return true;
-		if(p.getY() = 0) return true;
-		if(p.getX() = b.getWidth()) return true;
-		if(p.getY() = b.getHeight()) return true;
+		if(p.getX() == 0) return true;
+		if(p.getY() == 0) return true;
+		if(p.getX() == b.getWidth()) return true;
+		if(p.getY() == b.getHeight()) return true;
 		return false;
 	}
 	
 	public static boolean isOnCorner(Board b, Point p) {
-		if(p.getX() = 0 && p.getY() == 0) return true;
-		if(p.getX() = 0 && p.getY() == b.getHeight()) return true;
-		if(p.getX() = b.getWidth() && p.getY() == 0) return true;
-		if(p.getX() = b.getWidth() && p.getY() == b.getHeight()) return true;
-	return false;
+		if((p.getX() == 0) && (p.getY() == 0)) return true;
+		if((p.getX() == 0) && (p.getY() == b.getHeight())) return true;
+		if((p.getX() == b.getWidth()) && (p.getY() == 0)) return true;
+		if((p.getX() == b.getWidth()) && (p.getY() == b.getHeight())) return true;
+		return false;
 	}
 	
-	public Point getPoint(Board b, String s) {
+	public static Point getPoint(Board b, String s) {
 		if(s.equals("left"))
-			return new Point(b.self.getBodyLoc[0].getX() - 1, b.self.getBodyLoc[0].getY());
+			return new Point((int) b.self.bodyLoc[0].getX() - 1,(int) b.self.bodyLoc[0].getY());
 		if(s.equals("right"))
-			return new Point(b.self.getBodyLoc[0].getX() + 1, b.self.getBodyLoc[0].getY());
+			return new Point((int) b.self.bodyLoc[0].getX() + 1, (int) b.self.bodyLoc[0].getY());
 		if(s.equals("up"))
-			return new Point(b.self.getBodyLoc[0].getX(), b.self.getBodyLoc[0].getY() + 1);
-		if(s.equals("down"))
-			return new Point(b.self.getBodyLoc[0].getX(), b.self.getBodyLoc[0].getY() - 1);
-	
+			return new Point((int) b.self.bodyLoc[0].getX(), (int) b.self.bodyLoc[0].getY() + 1);
+		//down
+		return new Point((int) b.self.bodyLoc[0].getX(), (int) b.self.bodyLoc[0].getY() - 1);
+	}
 }
