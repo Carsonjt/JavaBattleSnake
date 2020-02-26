@@ -24,24 +24,18 @@ public class MoverHead {
 	
 	public static ArrayList<String> calcPossibleMoves(Board b) {
 		ArrayList<String> moves = new ArrayList<String>();
+		
 		Point left = new Point((int) b.self.bodyLoc[0].getX() - 1, (int) b.self.bodyLoc[0].getY());
-		if(MoverUtil.isValid(b, left))
-			moves.add("left");
-		
-		//RIGHT
+		if(MoverUtil.isValid(b, left)) moves.add("left");
+
 		Point right = new Point((int) b.self.bodyLoc[0].getX() + 1, (int) b.self.bodyLoc[0].getY());
-		if(MoverUtil.isValid(b, right))
-			moves.add("right");
+		if(MoverUtil.isValid(b, right)) moves.add("right");
 		
-		//UP
 		Point up = new Point((int) b.self.bodyLoc[0].getX(), (int) b.self.bodyLoc[0].getY() - 1);
-		if(MoverUtil.isValid(b, up))
-			moves.add("up");
+		if(MoverUtil.isValid(b, up)) moves.add("up");
 		
-		//DOWN
 		Point down = new Point((int) b.self.bodyLoc[0].getX(), (int) b.self.bodyLoc[0].getY() + 1);
-		if(MoverUtil.isValid(b, down))
-			moves.add("down");
+		if(MoverUtil.isValid(b, down)) moves.add("down");
 		
 		return moves;
 		
