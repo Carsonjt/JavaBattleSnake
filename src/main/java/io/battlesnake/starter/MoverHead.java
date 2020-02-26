@@ -2,6 +2,7 @@ package io.battlesnake.starter;
 
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.awt.Point;
 import io.battlesnake.starter.Snake;
 import io.battlesnake.starter.Board;
