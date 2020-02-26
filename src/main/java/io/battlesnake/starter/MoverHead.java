@@ -8,14 +8,39 @@ import io.battlesnake.starter.Snake;
 import io.battlesnake.starter.Board;
 
 public class MoverHead {
-
+	HashMap<String, Integer> moveValues;
+	
+	
 	public static String calcMove(Board b) {
+		//FIND POSSIBLE MOVES (NO INSTA DEATH)
 		ArrayList<String> openMoves = calcPossibleMoves(b);
 		
-		HashMap<String, Integer> moveValues = new HashMap<String, Integer>();
+		//IF NO POSSIBLE MOVES, ACCEPT DEFEAT :(
+		if(openMoves.size() == 0)
+			return "up";
+		
+		//PUT POSSIBLE MOVES INTO DANGER VALUE HASH MAP
+		moveValues = new HashMap<String, Integer>();
 		for(int i = 0; i < openMoves.size(); i++) {
 			moveValues.put(openMoves.get(i), 0);
 		}
+		
+		// CALC DANGER VALUES OF EACH POSSIBLE MOVE
+		calcDangerValues(b);
+		
+		// RETURN LEAST DANGEROUS MOVE
+		// IF MULTIPLE:
+		//    -> MOVE CLOSEST TO MIDDLE
+		//    IF MULTIPLE STILL:
+		//      -> PICK RANDOM
+		int smallest = openMoves.get(0);
+		 for(HashMap.Entry<String,int> direction : moveValues.entrySet()) {
+            Point dPoint = MoverUtil.getPoint(direction); 
+			if(MoverUtil.isOnBorder(b, dPoint))
+				moveValues.replace(direction, 1);
+			if(MoverUtil.isOnCorner(b, dPoint))
+				moveValues.replace(direction, 3);
+		 }
 		
 		Random random = new Random();
 		int index = random.nextInt(openMoves.size());
@@ -39,9 +64,10 @@ public class MoverHead {
 		if(MoverUtil.isValid(b, down)) moves.add("down");
 		
 		return moves;
-		
-		
 	}
 	
+	public static void calcDangerValues(Board b) {
+		//RUN MANY CHECKS TO CALC DANGER OF EACH MOVE
+	}
 	
 }
