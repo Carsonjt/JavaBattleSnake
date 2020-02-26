@@ -24,7 +24,6 @@ public class MoverUtil {
 		return isValid(b, new Point(x, y));
 	}
 	
-	public 
 	
 	
 	
