@@ -38,11 +38,6 @@ public class Snake{
 		}
 		newBodyLoc[newBodyLoc.length - 1] = p;
 		this.bodyLoc = newBodyLoc;
-		
-		System.out.println("OUTPUT: (LENGTH =" + bodyLoc.length + ")");
-		for(int i = 0; i < bodyLoc.length; i++) {
-			System.out.println(bodyLoc[i]);
-		}
 		return;
 	}
 	public void setHead(Point head) {
@@ -64,9 +59,7 @@ public class Snake{
 		return tail;
 	}
 	public boolean isAt(Point p) {
-			System.out.println("NEW POINT");
 			for(int i = 0; i < bodyLoc.length; i++) {
-				System.out.println("BODY: " + bodyLoc[i]);
 				if(bodyLoc[i].equals(p)) {
 					return true;
 				}
