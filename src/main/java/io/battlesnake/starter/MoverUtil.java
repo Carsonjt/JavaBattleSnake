@@ -28,11 +28,26 @@ public class MoverUtil {
 		if(s.equals("left"))
 			return new Point((int) b.self.bodyLoc[0].getX() - 1,(int) b.self.bodyLoc[0].getY());
 		if(s.equals("right"))
-			return new Point((int) b.self.bodyLoc[0].getX() + 1, (int) b.self.bodyLoc[0].getY());
+			return new Point((int) b.self.bodyLoc[0].getX() + 1,(int) b.self.bodyLoc[0].getY());
 		if(s.equals("up"))
 			return new Point((int) b.self.bodyLoc[0].getX(), (int) b.self.bodyLoc[0].getY() - 1);
 		//down
 		return new Point((int) b.self.bodyLoc[0].getX(), (int) b.self.bodyLoc[0].getY() + 1);
+	}
+	public static Point getLeft(Board b, Point p) {
+		return new Point((int) p.getX() - 1,(int) p.getY());
+	}
+	
+	public static Point getRight(Board b, Point p) {
+		return new Point((int) p.getX() + 1,(int) p.getY());
+	}
+	
+	public static Point getUp(Board b, Point p) {
+		return new Point((int) p.getX(), (int) p.getY() - 1);
+	}
+	
+	public static Point getDown(Board b, Point p) {
+		return new Point((int) p.getX(), (int) p.getY() + 1);
 	}
 	
 }
