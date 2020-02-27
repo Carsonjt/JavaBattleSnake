@@ -69,17 +69,17 @@ public class MoverChecks {
 		
 		for(Snake snake: b.snakes) {
 			if(snake.bodyLoc.length >= b.self.bodyLoc.length) {
-				if(snake.bodyLoc[0].equals(MoverUtil.getRight(p)))
+				if(snake.bodyLoc[0].equals(MoverUtil.getRight(b, p)))
 					return 10;
-				if(snake.bodyLoc[0].equals(MoverUtil.getDown(p)))
+				if(snake.bodyLoc[0].equals(MoverUtil.getDown(b, p)))
 					return 10;
-				if(snake.bodyLoc[0].equals(MoverUtil.getLeft(p)))
+				if(snake.bodyLoc[0].equals(MoverUtil.getLeft(b, p)))
 					return 10;
-				if(snake.bodyLoc[0].equals(MoverUtil.getUp(p)))
+				if(snake.bodyLoc[0].equals(MoverUtil.getUp(b, p)))
 					return 10;
 			}
-			return 0;
 		}
+		return 0;
 	}
 
 
