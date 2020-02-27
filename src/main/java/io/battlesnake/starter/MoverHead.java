@@ -35,21 +35,18 @@ public class MoverHead {
 		//    -> MOVE CLOSEST TO MIDDLE
 		//    IF MULTIPLE STILL:
 		//      -> PICK RANDOM
+		int smallest = 999;
+		String returnDirection = "default";
 		for (Map.Entry<String, Integer> entry : moveValues.entrySet()) {
-
-			String direction = entry.getKey();
-            Point dPoint = MoverUtil.getPoint(b, direction); 
-			
-			if(MoverUtil.isOnBorder(b, dPoint))
-				moveValues.replace(direction, 1);
-			if(MoverUtil.isOnCorner(b, dPoint))
-				moveValues.replace(direction, 3);
-		 }
+			if(entry.getValue() < smallest)
+				returnDirection = entry.getKey();
+		}
+		return returnDirection;
 		
-		Random random = new Random();
-		int index = random.nextInt(openMoves.size());
-		System.out.println(moveValues);
-		return openMoves.get(index);
+		//Random random = new Random();
+		//int index = random.nextInt(openMoves.size());
+		//System.out.println(moveValues);
+		//return openMoves.get(index);
 	}
 	
 	public static ArrayList<String> calcPossibleMoves(Board b) {
@@ -71,7 +68,17 @@ public class MoverHead {
 	}
 	
 	public static void calcDangerValues(Board b) {
-		//RUN MANY CHECKS TO CALC DANGER OF EACH MOVE
+		for (Map.Entry<String, Integer> entry : moveValues.entrySet()) {
+			String direction = entry.getKey();
+            Point dPoint = MoverUtil.getPoint(b, direction); 
+			
+			// ADD ALL DANGER CHECKS HERE
+			
+			if(MoverUtil.isOnBorder(b, dPoint))
+				moveValues.replace(direction, 1);
+			if(MoverUtil.isOnCorner(b, dPoint))
+				moveValues.replace(direction, 3);
+		 }
 	}
 	
 }
