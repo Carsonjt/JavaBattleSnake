@@ -42,6 +42,7 @@ public class MoverHead {
 				smallest = entry.getValue();
 				returnDirection = entry.getKey();
 		}
+		System.out.println("SMALLEST VAL: " + returnDirection);
 		System.out.println(moveValues);
 		return returnDirection;
 		
