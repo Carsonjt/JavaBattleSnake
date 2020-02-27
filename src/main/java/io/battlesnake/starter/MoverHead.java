@@ -38,9 +38,13 @@ public class MoverHead {
 		int smallest = 999;
 		String returnDirection = "default";
 		for (Map.Entry<String, Integer> entry : moveValues.entrySet()) {
-			if(entry.getValue() < smallest)
+			// IF SMALLER
+			if(entry.getValue() < smallest) {
 				smallest = entry.getValue();
 				returnDirection = entry.getKey();
+			}
+			// IF EQUAL
+				
 		}
 		System.out.println("SMALLEST VAL: " + returnDirection);
 		System.out.println(moveValues);
