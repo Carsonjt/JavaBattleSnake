@@ -41,6 +41,7 @@ public class MoverHead {
 			if(entry.getValue() < smallest)
 				returnDirection = entry.getKey();
 		}
+		System.out.println(moveValues);
 		return returnDirection;
 		
 		//Random random = new Random();
