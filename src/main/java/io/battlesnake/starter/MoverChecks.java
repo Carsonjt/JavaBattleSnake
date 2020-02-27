@@ -83,12 +83,11 @@ public class MoverChecks {
 	}
 
 	public static int containsFood(Board b, Point p) {
-		int amount = 0;
 		for(Point food: b.foodLoc) {
 			if(p.equals(food))
-				amount -= 1;
+				return -2;
 		}
-		return amount;
+		return 0;
 	}
 
 }
