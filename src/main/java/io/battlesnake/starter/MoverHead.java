@@ -40,6 +40,7 @@ public class MoverHead {
 				smallest = entry.getValue();
 				returnDirection = entry.getKey();
 			}
+			
 			if(entry.getValue() == smallest) {
 				// IF EQUAL CHECK FOR FOOD
 				/*	boolean isFood = false;
@@ -62,7 +63,6 @@ public class MoverHead {
 						smallest = entry.getValue();
 						returnDirection = entry.getKey();
 					}
-				}
 			}
 		}
 		// RETURN LEAST DANGEROUS
@@ -99,7 +99,7 @@ public class MoverHead {
 	//
 			
 			//CONTAINS FOOD (POSITIVE CHECK)
-			moveVales.replace(direction, moveValues.get(direction) + MoverChecks.isFood(b, dPoint);
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.containsFood(b, dPoint));
 			//IS BORDER SQUARE
 			if(b.self.health >= 20)
 				moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnBorder(b, dPoint));
