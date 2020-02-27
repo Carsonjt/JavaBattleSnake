@@ -30,11 +30,7 @@ public class MoverHead {
 		// CALC DANGER VALUES OF EACH POSSIBLE MOVE
 		calcDangerValues(b);
 		
-		// RETURN LEAST DANGEROUS MOVE
-		// IF MULTIPLE:
-		//    -> MOVE CLOSEST TO MIDDLE
-		//    IF MULTIPLE STILL:
-		//      -> PICK RANDOM
+		// FIND LEAST DANGEROUS MOVE
 		int smallest = 999;
 		String returnDirection = "default";
 		for (Map.Entry<String, Integer> entry : moveValues.entrySet()) {
@@ -53,16 +49,13 @@ public class MoverHead {
 				}
 			}
 		}
+		// RETURN LEAST DANGEROUS
 		System.out.println(moveValues);
 		return returnDirection;
-		
-		//Random random = new Random();
-		//int index = random.nextInt(openMoves.size());
-		//System.out.println(moveValues);
-		//return openMoves.get(index);
 	}
 	
 	public static ArrayList<String> calcPossibleMoves(Board b) {
+		// REMOVE SPACES THAT WILL DIRECTLY KILL IT (HAS A SNAKE/IS BORDER)
 		ArrayList<String> moves = new ArrayList<String>();
 		
 		Point left = new Point((int) b.self.bodyLoc[0].getX() - 1, (int) b.self.bodyLoc[0].getY());
@@ -81,16 +74,23 @@ public class MoverHead {
 	}
 	
 	public static void calcDangerValues(Board b) {
+		// LOOP FOR EACH AVAILABLE MOVE
 		for (Map.Entry<String, Integer> entry : moveValues.entrySet()) {
 			String direction = entry.getKey();
             Point dPoint = MoverUtil.getPoint(b, direction); 
-			
+			//
 			// ADD ALL DANGER CHECKS HERE
+			//
 			
+			//IS BORDER SQUARE
 			if(MoverUtil.isOnBorder(b, dPoint))
-				moveValues.replace(direction, 1);
+				moveValues.add(direction, moveValues.get(direction) + 1);
+			//IS CORNER SQUARE
 			if(MoverUtil.isOnCorner(b, dPoint))
-				moveValues.replace(direction, 3);
+				moveValues.add(direction, moveValues.get(direction) + 3);
+			//HAS ENOUGH SPACE
+			moveValues.replace
+			
 		 }
 	}
 	
