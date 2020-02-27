@@ -44,7 +44,7 @@ public class MoverHead {
 				// IF EQUAL CHECK FOR FOOD
 					boolean isFood = false;
 					System.out.println(b.foodLoc);
-					System.out.println(MoverUtil.getPoint(b, entry.getKey()).equals(food));
+					System.out.println(MoverUtil.getPoint(b, entry.getKey()));
 					for(Point food: b.foodLoc) {
 						if(MoverUtil.getPoint(b, entry.getKey()).equals(food)) {
 							smallest = entry.getValue();
