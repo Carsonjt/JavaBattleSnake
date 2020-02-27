@@ -35,14 +35,10 @@ public class Board {
 	}
 	public void addFoodLoc(Point p) {
 		Point[] newFoodLoc = new Point[foodLoc.length + 1];
-		if(newFoodLoc.length == 1)
-			newFoodLoc[0] = p;
-		else {
-			for(int i = 0; i < foodLoc.length ; i++) {
-				newFoodLoc[i] = foodLoc[i];
-			}
-			newFoodLoc[newFoodLoc.length - 1] = p;
+		for(int i = 0; i < foodLoc.length ; i++) {
+			newFoodLoc[i] = foodLoc[i];
 		}
+		newFoodLoc[newFoodLoc.length - 1] = p;
 		this.foodLoc = newFoodLoc;
 		return;
 	}
