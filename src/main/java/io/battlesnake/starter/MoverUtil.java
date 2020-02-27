@@ -11,6 +11,7 @@ public class MoverUtil {
 		if(p.getY() < 0) return false;
 		if(p.getX() > b.getWidth()) return false;
 		if(p.getY() > b.getHeight()) return false;
+		if(b.self.bodyLoc[b.self.bodyLoc.length-1].equals(p)) return true;
 		if(b.self.isAt(p)) return false;
 		
 		for(Snake s: b.snakes) {
