@@ -38,15 +38,20 @@ public class MoverHead {
 		int smallest = 999;
 		String returnDirection = "default";
 		for (Map.Entry<String, Integer> entry : moveValues.entrySet()) {
-			// IF SMALLER
+			// IF SMALLER UPDATE SMALLEST
 			if(entry.getValue() < smallest) {
 				smallest = entry.getValue();
 				returnDirection = entry.getKey();
 			}
-			// IF EQUAL
-				
+			// IF EQUAL PICK RANDOM ONE
+			if(entry.getValue() == smallest) {
+				Random random = new Random();
+				int rand = random.nextInt(2);
+				if(rand == 0) {
+					smallest = entry.getValue();
+					returnDirection = entry.getKey();
+			}
 		}
-		System.out.println("SMALLEST VAL: " + returnDirection);
 		System.out.println(moveValues);
 		return returnDirection;
 		
