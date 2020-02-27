@@ -65,4 +65,22 @@ public class MoverChecks {
 		return;
 	}
 
+	public static int avoidHeadOnCollision(Board b, Point p) {
+		
+		for(Snake snake: b.snakes) {
+			if(snake.bodyLoc.length >= b.self.bodyLoc.length) {
+				if(snake.bodyLoc[0].equals(MoverUtil.getRight(p)))
+					return 10;
+				if(snake.bodyLoc[0].equals(MoverUtil.getDown(p)))
+					return 10;
+				if(snake.bodyLoc[0].equals(MoverUtil.getLeft(p)))
+					return 10;
+				if(snake.bodyLoc[0].equals(MoverUtil.getUp(p)))
+					return 10;
+			}
+			return 0;
+		}
+	}
+
+
 }

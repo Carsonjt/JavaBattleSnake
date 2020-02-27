@@ -89,7 +89,8 @@ public class MoverHead {
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnCorner(b, dPoint));
 			//HAS ENOUGH SPACE
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.adjacentSpace(b, dPoint));
-			
+			//HEAD ON COLLISIONS
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidHeadOnCollision(b, dPoint));
 		 }
 	}
 	
