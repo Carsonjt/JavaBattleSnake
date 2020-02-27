@@ -23,11 +23,13 @@ public class MoverChecks {
 		return 0;
 	}
 	static ArrayList<Point> tiles = new ArrayList<Point>();
-	public static int adjacentSpace(Board b, Point p) {
+	public static int adjacentSpace(Board b, Point p) 
 		if(p.equals(b.self.bodyLoc[0]))
 			tiles = new ArrayList<Point>();
 		
-		while(tiles.size() < (b.self.bodyLoc.length / 2)) {
+		System.out.println("CHECK POINT: " + p);
+		
+		//while(tiles.size() < (b.self.bodyLoc.length / 2)) {
 			Point left = MoverUtil.getLeft(b, p);
 			Point right = MoverUtil.getRight(b, p);
 			Point up = MoverUtil.getUp(b, p);
@@ -49,9 +51,9 @@ public class MoverChecks {
 				tiles.add(down);
 				adjacentSpace(b, down);
 			}
-			else
-				break;
-		}
+			//else
+			//	break;
+		//}
 		System.out.println(tiles.size());
 		System.out.println(b.self.bodyLoc.length / 2);
 		if(tiles.size() >= (b.self.bodyLoc.length / 2)) {
