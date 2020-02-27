@@ -25,10 +25,10 @@ public class MoverChecks {
 
 	static ArrayList<Point> tiles = new ArrayList<Point>();
 	public static int adjacentSpace(Board b, Point p) {
-		System.out.println("CHECK POINT1: " + p);
 		if(p.equals(b.self.bodyLoc[0]))
 			tiles = new ArrayList<Point>();
-		System.out.println("CHECK POINT2: " + p);
+		System.out.println("SIZE: " + tiles.size());
+		System.out.println("TARGET: " + b.self.bodyLoc.length / 2);
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
 		
