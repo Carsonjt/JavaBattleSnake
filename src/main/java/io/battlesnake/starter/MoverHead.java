@@ -40,13 +40,25 @@ public class MoverHead {
 				smallest = entry.getValue();
 				returnDirection = entry.getKey();
 			}
-			// IF EQUAL PICK RANDOM ONE
 			if(entry.getValue() == smallest) {
-				Random random = new Random();
-				int rand = random.nextInt(2);
-				if(rand == 0) {
-					smallest = entry.getValue();
-					returnDirection = entry.getKey();
+				// IF EQUAL CHECK FOR FOOD
+					boolean isFood = false;
+					for(Point food: b.foodLoc) {
+						if(MoverUtil.getPoint(b, entry.getKey()).equals(food)) {
+							smallest = entry.getValue();
+							returnDirection = entry.getKey();
+							isFood = true;
+							break;
+						}
+					}
+					
+				if(!isFood) {
+					Random random = new Random();
+					int rand = random.nextInt(2);
+					if(rand == 0) {
+						smallest = entry.getValue();
+						returnDirection = entry.getKey();
+					}
 				}
 			}
 		}
@@ -79,9 +91,9 @@ public class MoverHead {
 		for (Map.Entry<String, Integer> entry : moveValues.entrySet()) {
 			String direction = entry.getKey();
             Point dPoint = MoverUtil.getPoint(b, direction); 
-			//
-			// ADD ALL DANGER CHECKS HERE
-			//
+	//
+	// ADD ALL DANGER CHECKS HERE
+	//
 			
 			//IS BORDER SQUARE
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnBorder(b, dPoint));
