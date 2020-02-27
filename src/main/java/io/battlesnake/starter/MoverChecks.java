@@ -22,10 +22,14 @@ public class MoverChecks {
 		if((p.getX() == b.getWidth()) && (p.getY() == b.getHeight())) return 3;
 		return 0;
 	}
+
 	static ArrayList<Point> tiles = new ArrayList<Point>();
 	public static int adjacentSpace(Board b, Point p) {
 		if(p.equals(b.self.bodyLoc[0]))
 			tiles = new ArrayList<Point>();
+		
+		if(tiles.size() == b.self.bodyLoc.length / 2)
+			return 0;
 		
 		System.out.println("CHECK POINT: " + p);
 		
@@ -37,29 +41,23 @@ public class MoverChecks {
 			
 			if(MoverUtil.isValid(b, left) && !tiles.contains(left)) {
 				tiles.add(left);
-				adjacentSpace(b, left);
+				return adjacentSpace(b, left);
 			}
 			else if(MoverUtil.isValid(b, right) && !tiles.contains(right)) {
 				tiles.add(right);
-				adjacentSpace(b, right);
+				return adjacentSpace(b, right);
 			}
 			else if(MoverUtil.isValid(b, up) && !tiles.contains(up)) {
 				tiles.add(up);
-				adjacentSpace(b, up);
+				return adjacentSpace(b, up);
 			}
 			else if(MoverUtil.isValid(b, down) && !tiles.contains(down)) {
 				tiles.add(down);
-				adjacentSpace(b, down);
+				return adjacentSpace(b, down);
 			}
-			//else
-			//	break;
-		//}
-		if(tiles.size() >= (b.self.bodyLoc.length / 2)) {
-			return 0;
-		}
-		else {
+		else
 			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 3;
-		}
+		
 	}
 
 }
