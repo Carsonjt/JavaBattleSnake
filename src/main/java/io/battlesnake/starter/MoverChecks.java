@@ -23,7 +23,7 @@ public class MoverChecks {
 		return 0;
 	}
 	static ArrayList<Point> tiles = new ArrayList<Point>();
-	public static int adjacentSpace(Board b, Point p) 
+	public static int adjacentSpace(Board b, Point p) {
 		if(p.equals(b.self.bodyLoc[0]))
 			tiles = new ArrayList<Point>();
 		
@@ -66,7 +66,5 @@ public class MoverChecks {
 			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 3;
 		}
 	}
-
-
 
 }
