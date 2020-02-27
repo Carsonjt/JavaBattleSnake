@@ -54,15 +54,10 @@ public class MoverChecks {
 			//else
 			//	break;
 		//}
-		System.out.println(tiles.size());
-		System.out.println(b.self.bodyLoc.length / 2);
 		if(tiles.size() >= (b.self.bodyLoc.length / 2)) {
-			System.out.println("ADJACENT RISK: 0");
 			return 0;
 		}
-		
 		else {
-			System.out.println("ADJACENT RISK: " + ((b.self.bodyLoc.length / 2) - tiles.size()) * 3);
 			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 3;
 		}
 	}
