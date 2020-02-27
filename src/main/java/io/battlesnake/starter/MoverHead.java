@@ -39,6 +39,7 @@ public class MoverHead {
 		String returnDirection = "default";
 		for (Map.Entry<String, Integer> entry : moveValues.entrySet()) {
 			if(entry.getValue() < smallest)
+				smallest = entry.getValue();
 				returnDirection = entry.getKey();
 		}
 		System.out.println(moveValues);
