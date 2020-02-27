@@ -24,41 +24,43 @@ public class MoverChecks {
 	}
 
 	static ArrayList<Point> tiles = new ArrayList<Point>();
+	
 	public static int adjacentSpace(Board b, Point p) {
-		if(p.equals(b.self.bodyLoc[0]))
-			tiles = new ArrayList<Point>();
-		System.out.println("SIZE: " + tiles.size());
-		System.out.println("TARGET: " + b.self.bodyLoc.length / 2);
+		tiles = new ArrayList<Point>();
+		adjacentSpaceHelper(b, p);
+		
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
-		
-		System.out.println("CHECK POINT3: " + p);
-		
-		//while(tiles.size() < (b.self.bodyLoc.length / 2)) {
-			Point left = MoverUtil.getLeft(b, p);
-			Point right = MoverUtil.getRight(b, p);
-			Point up = MoverUtil.getUp(b, p);
-			Point down = MoverUtil.getDown(b, p);
+		else
+			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 3;
+	}
+	
+	public static void adjacentSpaceHelper(Board b, Point p) {
+
+		if(tiles.size() >= b.self.bodyLoc.length / 2)
+			return;
+
+		Point left = MoverUtil.getLeft(b, p);
+		Point right = MoverUtil.getRight(b, p);
+		Point up = MoverUtil.getUp(b, p);
+		Point down = MoverUtil.getDown(b, p);
 			
-			if(MoverUtil.isValid(b, left) && !tiles.contains(left)) {
-				tiles.add(left);
-				return adjacentSpace(b, left);
-			}
-			if(MoverUtil.isValid(b, right) && !tiles.contains(right)) {
-				tiles.add(right);
-				return adjacentSpace(b, right);
-			}
-			if(MoverUtil.isValid(b, up) && !tiles.contains(up)) {
-				tiles.add(up);
-				return adjacentSpace(b, up);
-			}
-			if(MoverUtil.isValid(b, down) && !tiles.contains(down)) {
-				tiles.add(down);
-				return adjacentSpace(b, down);
-			}
-			
-		return ((b.self.bodyLoc.length / 2) - tiles.size()) * 3;
-		
+		if(MoverUtil.isValid(b, left) && !tiles.contains(left)) {
+			tiles.add(left);
+			adjacentSpace(b, left);
+		}
+		if(MoverUtil.isValid(b, right) && !tiles.contains(right)) {
+			tiles.add(right);
+			adjacentSpace(b, right);
+		}
+		if(MoverUtil.isValid(b, up) && !tiles.contains(up)) {
+			tiles.add(up);
+			adjacentSpace(b, up);
+		}
+		if(MoverUtil.isValid(b, down) && !tiles.contains(down)) {
+			tiles.add(down);
+			adjacentSpace(b, down);
+		}
 	}
 
 }
