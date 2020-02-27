@@ -50,6 +50,7 @@ public class MoverHead {
 				if(rand == 0) {
 					smallest = entry.getValue();
 					returnDirection = entry.getKey();
+				}
 			}
 		}
 		System.out.println(moveValues);
