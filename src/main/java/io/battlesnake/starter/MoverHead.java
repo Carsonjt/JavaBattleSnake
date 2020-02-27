@@ -89,7 +89,6 @@ public class MoverHead {
 			if(MoverUtil.isOnCorner(b, dPoint))
 				moveValues.add(direction, moveValues.get(direction) + 3);
 			//HAS ENOUGH SPACE
-			moveValues.replace
 			
 		 }
 	}
