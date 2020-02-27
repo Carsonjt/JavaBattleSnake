@@ -24,22 +24,6 @@ public class MoverUtil {
 		return isValid(b, new Point(x, y));
 	}
 	
-	public static boolean isOnBorder(Board b, Point p) {
-		if(p.getX() == 0) return true;
-		if(p.getY() == 0) return true;
-		if(p.getX() == b.getWidth()) return true;
-		if(p.getY() == b.getHeight()) return true;
-		return false;
-	}
-	
-	public static boolean isOnCorner(Board b, Point p) {
-		if((p.getX() == 0) && (p.getY() == 0)) return true;
-		if((p.getX() == 0) && (p.getY() == b.getHeight())) return true;
-		if((p.getX() == b.getWidth()) && (p.getY() == 0)) return true;
-		if((p.getX() == b.getWidth()) && (p.getY() == b.getHeight())) return true;
-		return false;
-	}
-	
 	public static Point getPoint(Board b, String s) {
 		if(s.equals("left"))
 			return new Point((int) b.self.bodyLoc[0].getX() - 1,(int) b.self.bodyLoc[0].getY());
@@ -50,4 +34,5 @@ public class MoverUtil {
 		//down
 		return new Point((int) b.self.bodyLoc[0].getX(), (int) b.self.bodyLoc[0].getY() + 1);
 	}
+	
 }

@@ -83,11 +83,9 @@ public class MoverHead {
 			//
 			
 			//IS BORDER SQUARE
-			if(MoverUtil.isOnBorder(b, dPoint))
-				moveValues.replace(direction, moveValues.get(direction) + 1);
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnBorder(b, dPoint));
 			//IS CORNER SQUARE
-			if(MoverUtil.isOnCorner(b, dPoint))
-				moveValues.replace(direction, moveValues.get(direction) + 3);
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnCorner(b, dPoint));
 			//HAS ENOUGH SPACE
 			
 		 }
