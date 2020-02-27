@@ -42,7 +42,7 @@ public class MoverHead {
 			}
 			if(entry.getValue() == smallest) {
 				// IF EQUAL CHECK FOR FOOD
-					boolean isFood = false;
+				/*	boolean isFood = false;
 					System.out.println(b.foodLoc);
 					System.out.println(MoverUtil.getPoint(b, entry.getKey()));
 					for(Point food: b.foodLoc) {
@@ -55,6 +55,7 @@ public class MoverHead {
 					}
 					
 				if(!isFood) {
+				*/
 					Random random = new Random();
 					int rand = random.nextInt(2);
 					if(rand == 0) {
@@ -97,6 +98,8 @@ public class MoverHead {
 	// ADD ALL DANGER CHECKS HERE
 	//
 			
+			//CONTAINS FOOD (POSITIVE CHECK)
+			moveVales.replace(direction, moveValues.get(direction) + MoverChecks.isFood(b, dPoint);
 			//IS BORDER SQUARE
 			if(b.self.health >= 20)
 				moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnBorder(b, dPoint));

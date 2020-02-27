@@ -33,7 +33,7 @@ public class MoverChecks {
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
 		else
-			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 3;
+			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 3;
 	}
 	
 	public static void adjacentSpaceHelper(Board b, Point p) {
@@ -82,5 +82,13 @@ public class MoverChecks {
 		return 0;
 	}
 
+	public static int containsFood(Board b, Point p) {
+		int amount = 0;
+		for(Point food: b.foodLoc) {
+			if(p.equals(food))
+				amount -= 1;
+		}
+		return amount;
+	}
 
 }
