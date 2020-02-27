@@ -1,3 +1,4 @@
+package io.battlesnake.starter;
 
 import java.awt.Point;
 import io.battlesnake.starter.Snake;
@@ -21,12 +22,8 @@ public class MoverChecks {
 		return 0;
 	}
 	
-	public static int adjacentSpace(Board b, String s) {
-		return adjacentSpace(b, getPoint(b, s));
-	}
-	
 	public static int adjacentSpace(Board b, Point p) {
-		
+		return 0;
 	}
 
 

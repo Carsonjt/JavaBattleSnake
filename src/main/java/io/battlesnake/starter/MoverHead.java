@@ -8,6 +8,7 @@ import java.util.Map;
 import java.awt.Point;
 import io.battlesnake.starter.Snake;
 import io.battlesnake.starter.Board;
+import io.battlesnake.starter.Board;
 
 public class MoverHead {
 	static HashMap<String, Integer> moveValues;
