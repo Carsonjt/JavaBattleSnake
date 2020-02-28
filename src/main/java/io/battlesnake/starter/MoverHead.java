@@ -99,7 +99,7 @@ public class MoverHead {
 	//
 			
 			//CONTAINS FOOD (POSITIVE CHECK)
-			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.containsFood(b, dPoint));
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.nearbyFood(b, dPoint));
 			//IS BORDER SQUARE
 			if(b.self.health >= 20)
 				moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnBorder(b, dPoint));

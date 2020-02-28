@@ -16,10 +16,10 @@ public class MoverChecks {
 	}
 	
 	public static int isOnCorner(Board b, Point p) {
-		if((p.getX() == 0) && (p.getY() == 0)) return 3;
-		if((p.getX() == 0) && (p.getY() == b.getHeight())) return 3;
-		if((p.getX() == b.getWidth()) && (p.getY() == 0)) return 3;
-		if((p.getX() == b.getWidth()) && (p.getY() == b.getHeight())) return 3;
+		if((p.getX() == 0) && (p.getY() == 0)) return 4;
+		if((p.getX() == 0) && (p.getY() == b.getHeight())) return 4;
+		if((p.getX() == b.getWidth()) && (p.getY() == 0)) return 4;
+		if((p.getX() == b.getWidth()) && (p.getY() == b.getHeight())) return 4;
 		return 0;
 	}
 
@@ -82,11 +82,45 @@ public class MoverChecks {
 		return 0;
 	}
 
-	public static int containsFood(Board b, Point p) {
+	public static int nearbyFood(Board b, Point p) {
+		//RADIUS 1 CHECK
 		for(Point food: b.foodLoc) {
 			if(p.equals(food))
-				return -2;
+				return -3;
 		}
+		//RADIUS 2 CHECK
+		Point left = MoverUtil.getLeft(b, p);
+		if(MoverUtil.isValid(b, left)) {
+			for(Point food: b.foodLoc) {
+				if(left.equals(food))
+					return -2;
+			}
+		}
+			
+		Point right = MoverUtil.getRight(b, p);
+		if(MoverUtil.isValid(b, right)) {
+			for(Point food: b.foodLoc) {
+				if(right.equals(food))
+					return -2;
+			}
+		}
+			
+		Point up = MoverUtil.getUp(b, p);
+		if(MoverUtil.isValid(b, up)) {
+			for(Point food: b.foodLoc) {
+				if(up.equals(food))
+					return -2;
+			}
+		}
+	
+		Point down = MoverUtil.getDown(b, p);
+		if(MoverUtil.isValid(b, down)) {
+			for(Point food: b.foodLoc) {
+				if(down.equals(food))
+					return -2;
+			}
+		}
+
 		return 0;
 	}
 
