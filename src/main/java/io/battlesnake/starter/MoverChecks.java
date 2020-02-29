@@ -95,6 +95,7 @@ public class MoverChecks {
 						}
 					}
 					if(hasSafeMove)
+						System.out.println("HAS MOVE");
 						return 0;
 					
 					else
