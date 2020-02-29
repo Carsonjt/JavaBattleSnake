@@ -87,11 +87,9 @@ public class MoverHead {
 			System.out.println("FOOD: " + direction + " " + MoverChecks.nearbyFood(b, dPoint));
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.nearbyFood(b, dPoint));
 			//IS BORDER SQUARE
-			System.out.println("BORDER: " + direction + " " + MoverChecks.isOnBorder(b, dPoint));
-			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnBorder(b, dPoint));
+			System.out.println("BORDER: " + direction + " " + MoverChecks.avoidBorder(b, dPoint));
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidBorder(b, dPoint));
 			//IS NEXT TO BORDER SQUARE
-			System.out.println("NEAR BORDER: " + direction + " " + MoverChecks.isNextToBorder(b, dPoint));
-			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isNextToBorder(b, dPoint));
 			//IS CORNER SQUARE
 			System.out.println("CORNER: " + direction + " " + MoverChecks.isOnCorner(b, dPoint));
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnCorner(b, dPoint));

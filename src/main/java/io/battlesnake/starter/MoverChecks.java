@@ -7,19 +7,17 @@ import java.util.ArrayList;
 
 public class MoverChecks {
 
-	public static int isOnBorder(Board b, Point p) {
+	public static int avoidBorder(Board b, Point p) {
 		if(p.getX() == 0) return 3;
 		if(p.getY() == 0) return 3;
 		if(p.getX() == b.getWidth()) return 3;
 		if(p.getY() == b.getHeight()) return 3;
-		return 0;
-	}
-
-	public static int isNextToBorder(Board b, Point p) {
+		
 		if(p.getX() == 1) return 1;
 		if(p.getY() == 1) return 1;
 		if(p.getX() == b.getWidth() - 1) return 1;
 		if(p.getY() == b.getHeight() - 1) return 1;
+		
 		return 0;
 	}
 
@@ -122,7 +120,7 @@ public class MoverChecks {
 		//DIRECT CHECK
 		for(Point food: b.foodLoc) {
 			if(p.equals(food)) {
-				if(b.self.health > 15 && (isOnBorder(b, p) == 0))
+				if(avoidBorder(b, p) == 3)
 					return 0;
 				return -2;
 			}
@@ -132,7 +130,7 @@ public class MoverChecks {
 			if(MoverUtil.isValid(b, surrounding)) {
 				for(Point food: b.foodLoc) {
 					if(surrounding.equals(food)) {
-						if(b.self.health > 15 && (isOnBorder(b, p) == 0))
+						if(avoidBorder(b, p) == 3)
 							return 0;
 						return -2;
 					}
