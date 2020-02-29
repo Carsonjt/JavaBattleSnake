@@ -8,10 +8,10 @@ import java.util.ArrayList;
 public class MoverChecks {
 
 	public static int isOnBorder(Board b, Point p) {
-		if(p.getX() == 0) return 1;
-		if(p.getY() == 0) return 1;
-		if(p.getX() == b.getWidth()) return 1;
-		if(p.getY() == b.getHeight()) return 1;
+		if(p.getX() == 0) return 3;
+		if(p.getY() == 0) return 3;
+		if(p.getX() == b.getWidth()) return 3;
+		if(p.getY() == b.getHeight()) return 3;
 		return 0;
 	}
 	
@@ -33,7 +33,7 @@ public class MoverChecks {
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
 		else
-			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 5;
+			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 8;
 	}
 	
 	public static void adjacentSpaceHelper(Board b, Point p) {
