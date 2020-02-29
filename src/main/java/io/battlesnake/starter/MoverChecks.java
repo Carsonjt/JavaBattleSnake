@@ -125,17 +125,19 @@ public class MoverChecks {
 				return -2;
 			}
 		}
-		for(Point surrounding: MoverUtil.surroundingPoints(b, p)) {
+		if(p.self.health < 15) {
+			for(Point surrounding: MoverUtil.surroundingPoints(b, p)) {
 			
-			if(MoverUtil.isValid(b, surrounding)) {
-				for(Point food: b.foodLoc) {
-					if(surrounding.equals(food)) {
-						if(avoidBorder(b, food) == 3)
-							return 0;
-						return -2;
+				if(MoverUtil.isValid(b, surrounding)) {
+					for(Point food: b.foodLoc) {
+						if(surrounding.equals(food)) {
+							if(avoidBorder(b, food) == 3)
+								return 0;
+							return -2;
+						}
 					}
 				}
-			}
+			}	
 		}
 		return 0;
 	}
