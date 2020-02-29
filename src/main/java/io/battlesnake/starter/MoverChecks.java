@@ -66,7 +66,7 @@ public class MoverChecks {
 	}
 
 	public static int avoidHeadOnCollision(Board b, Point p) {
-		
+		//CHECK DIRECT COLLISIONS
 		for(Snake snake: b.snakes) {
 			if(snake.bodyLoc.length >= b.self.bodyLoc.length) {
 				for(Point surrounding: MoverUtil.surroundingPoints(b, p)) {
@@ -74,6 +74,35 @@ public class MoverChecks {
 						return 10;
 				}
 			}
+		}
+		//CHECK FUTURE FORCED COLLISIONS
+		ArrayList<Point> otherMoves = new ArrayList<Point>();
+		
+		for(Snake snake: b.snakes) {
+			for(Point other1: MoverUtil.surroundingPoints(b, snake.bodyLoc[0])) {
+				if(MoverUtil.isValid(b, other1)) {
+					otherMoves.clear();
+					for(Point other2: MoverUtil.surroundingPoints(b, other1)) {
+						otherMoves.add(other2);
+					}
+					
+					//DOESNT HAVE SPACE OR FORCED HEAD ON (CONTAINS OTHERMOVES)
+					boolean hasSafeMove = false;
+					for(Point self: MoverUtil.surroundingPoints(b, p)) {
+						if(MoverUtil.isValid(b, self)) {
+							if(!otherMoves.contains(self)) // ADD CHECK IF HAS ENOUGH SPACE TOO
+								hasSafeMove = true;
+						}
+					}
+					if(hasSafeMove)
+						return 0;
+					
+					else
+						return 5;
+					
+				}
+			}
+			
 		}
 		return 0;
 	}
@@ -96,5 +125,6 @@ public class MoverChecks {
 		}
 		return 0;
 	}
+	
 
 }

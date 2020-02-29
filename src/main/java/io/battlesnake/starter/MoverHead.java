@@ -42,21 +42,6 @@ public class MoverHead {
 			}
 			
 			if(entry.getValue() == smallest) {
-				// IF EQUAL CHECK FOR FOOD
-				/*	boolean isFood = false;
-					System.out.println(b.foodLoc);
-					System.out.println(MoverUtil.getPoint(b, entry.getKey()));
-					for(Point food: b.foodLoc) {
-						if(MoverUtil.getPoint(b, entry.getKey()).equals(food)) {
-							smallest = entry.getValue();
-							returnDirection = entry.getKey();
-							isFood = true;
-							break;
-						}
-					}
-					
-				if(!isFood) {
-				*/
 					Random random = new Random();
 					int rand = random.nextInt(2);
 					if(rand == 0) {
