@@ -77,13 +77,15 @@ public class MoverChecks {
 		}
 		//CHECK FUTURE FORCED COLLISIONS
 		ArrayList<Point> otherMoves = new ArrayList<Point>();
-		
+
+		boolean isSafe = true;
 		for(Snake snake: b.snakes) {
 			for(Point other1: MoverUtil.surroundingPoints(b, snake.bodyLoc[0])) {
 				if(MoverUtil.isValid(b, other1)) {
 					otherMoves.clear();
 					for(Point other2: MoverUtil.surroundingPoints(b, other1)) {
-						otherMoves.add(other2);
+						if(MoverUtil.isValid(b, other2))
+							otherMoves.add(other2);
 					}
 					
 					//DOESNT HAVE SPACE OR FORCED HEAD ON (CONTAINS OTHERMOVES)
@@ -94,17 +96,17 @@ public class MoverChecks {
 								hasSafeMove = true;
 						}
 					}
-					if(hasSafeMove) {
-						System.out.println("HAS MOVE");
-						return 0;
+					if(!hasSafeMove) {
+						isSafe = false;
 					}
-					else
-						return 5;
-					
 				}
 			}
 			
+			
 		}
+		if(!isSafe)
+			return 5;
+		
 		return 0;
 	}
 
