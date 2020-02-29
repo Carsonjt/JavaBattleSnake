@@ -86,7 +86,7 @@ public class MoverChecks {
 		//DIRECT CHECK
 		for(Point food: b.foodLoc) {
 			if(p.equals(food))
-				return -1;
+				return -2;
 		}
 		Point left = MoverUtil.getLeft(b, p);
 		Point right = MoverUtil.getRight(b, p);
@@ -97,7 +97,7 @@ public class MoverChecks {
 		if(MoverUtil.isValid(b, left)) {
 			for(Point food: b.foodLoc) {
 				if(left.equals(food))
-					return -1;
+					return -2;
 			}
 //			return nearbyFood(b, left);
 		}
@@ -105,7 +105,7 @@ public class MoverChecks {
 		if(MoverUtil.isValid(b, right)) {
 			for(Point food: b.foodLoc) {
 				if(right.equals(food))
-					return -1;
+					return -2;
 			}
 //			return nearbyFood(b, right);
 		}
@@ -113,7 +113,7 @@ public class MoverChecks {
 		if(MoverUtil.isValid(b, up)) {
 			for(Point food: b.foodLoc) {
 				if(up.equals(food))
-					return -1;
+					return -2;
 			}
 //			return nearbyFood(b, up);
 		}
@@ -121,7 +121,7 @@ public class MoverChecks {
 		if(MoverUtil.isValid(b, down)) {
 			for(Point food: b.foodLoc) {
 				if(down.equals(food))
-					return -1;
+					return -2;
 			}
 //			return nearbyFood(b, down);
 		}
