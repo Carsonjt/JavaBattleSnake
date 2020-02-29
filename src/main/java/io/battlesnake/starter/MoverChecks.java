@@ -94,10 +94,10 @@ public class MoverChecks {
 								hasSafeMove = true;
 						}
 					}
-					if(hasSafeMove)
+					if(hasSafeMove) {
 						System.out.println("HAS MOVE");
 						return 0;
-					
+					}
 					else
 						return 5;
 					
