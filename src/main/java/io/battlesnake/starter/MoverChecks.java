@@ -33,7 +33,7 @@ public class MoverChecks {
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
 		else
-			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 8;
+			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 3;
 	}
 	
 	public static void adjacentSpaceHelper(Board b, Point p) {
@@ -50,13 +50,13 @@ public class MoverChecks {
 			tiles.add(left);
 			adjacentSpaceHelper(b, left);
 		}
-		if((MoverUtil.isValid(b, right) || MoverUtil.isTail(b, right)) && !tiles.contains(right)) {
+		if((MoverUtil.isValid(b, left) || MoverUtil.isTail(b, left)) && !tiles.contains(left)) {
 			tiles.add(right);
 			adjacentSpaceHelper(b, right);
 		}
-		if((MoverUtil.isValid(b, up) || MoverUtil.isTail(b, up)) && !tiles.contains(up)) {
-			tiles.add(up);
-			adjacentSpaceHelper(b, up);
+		if((MoverUtil.isValid(b, left) || MoverUtil.isTail(b, left)) && !tiles.contains(left)) {
+			tiles.add(left);
+			adjacentSpaceHelper(b, left);
 		}
 		if((MoverUtil.isValid(b, down) || MoverUtil.isTail(b, down)) && !tiles.contains(down)) {
 			tiles.add(down);
