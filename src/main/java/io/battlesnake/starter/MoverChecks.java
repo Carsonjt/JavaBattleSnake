@@ -125,7 +125,7 @@ public class MoverChecks {
 				return -2;
 			}
 		}
-		if(p.self.health < 15) {
+		if(b.self.health < 15) {
 			for(Point surrounding: MoverUtil.surroundingPoints(b, p)) {
 			
 				if(MoverUtil.isValid(b, surrounding)) {
