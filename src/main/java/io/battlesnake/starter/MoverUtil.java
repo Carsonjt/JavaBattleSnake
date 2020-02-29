@@ -63,4 +63,14 @@ public class MoverUtil {
 		return new Point((int) p.getX(), (int) p.getY() + 1);
 	}
 	
+	public static Point[] surroundingPoints(Board b, Point p) {
+		Point[] points = new Point[4];
+		points[0] = MoverUtil.getLeft(b, p);
+		points[1] = MoverUtil.getRight(b, p);
+		points[2] = MoverUtil.getUp(b, p);
+		points[3] = MoverUtil.getDown(b, p);
+		return points;
+	}
+
+	
 }

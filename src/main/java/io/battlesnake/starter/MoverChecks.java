@@ -69,22 +69,13 @@ public class MoverChecks {
 		
 		for(Snake snake: b.snakes) {
 			if(snake.bodyLoc.length >= b.self.bodyLoc.length) {
-				for(Point surrounding: MoverUtil.surroundingPoints(p)) {
+				for(Point surrounding: MoverUtil.surroundingPoints(b, p)) {
 					if(snake.bodyLoc[0].equals(surrounding))
 						return 10;
 				}
 			}
 		}
 		return 0;
-	}
-
-	public static Point[] surroundingPoints(Board b, Point p) {
-		Point[] points = new Point[4];
-		points[0] = MoverUtil.getLeft(b, p);
-		points[1] = MoverUtil.getRight(b, p);
-		points[2] = MoverUtil.getUp(b, p);
-		points[3] = MoverUtil.getDown(b, p);
-		return points;
 	}
 
 	public static int nearbyFood(Board b, Point p) {
