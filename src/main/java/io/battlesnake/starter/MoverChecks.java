@@ -83,43 +83,50 @@ public class MoverChecks {
 	}
 
 	public static int nearbyFood(Board b, Point p) {
-		//RADIUS 1 CHECK
+		//DIRECT CHECK
 		for(Point food: b.foodLoc) {
 			if(p.equals(food))
-				return -3;
+				return -2;
 		}
-		//RADIUS 2 CHECK
 		Point left = MoverUtil.getLeft(b, p);
+		Point right = MoverUtil.getRight(b, p);
+		Point up = MoverUtil.getUp(b, p);
+		Point down = MoverUtil.getDown(b, p);
+
+		//RADIUS CHECK (1/2)
 		if(MoverUtil.isValid(b, left)) {
 			for(Point food: b.foodLoc) {
 				if(left.equals(food))
-					return -2;
+					return -1;
 			}
+			return nearbyFood(left);
 		}
 			
-		Point right = MoverUtil.getRight(b, p);
 		if(MoverUtil.isValid(b, right)) {
 			for(Point food: b.foodLoc) {
 				if(right.equals(food))
-					return -2;
+					return -1;
 			}
+			return nearbyFood(right);
 		}
 			
-		Point up = MoverUtil.getUp(b, p);
 		if(MoverUtil.isValid(b, up)) {
 			for(Point food: b.foodLoc) {
 				if(up.equals(food))
-					return -2;
+					return -1;
 			}
+			return nearbyFood(up);
 		}
 	
-		Point down = MoverUtil.getDown(b, p);
 		if(MoverUtil.isValid(b, down)) {
 			for(Point food: b.foodLoc) {
 				if(down.equals(food))
-					return -2;
+					return -1;
 			}
+			return nearbyFood(down);
 		}
+
+		
 
 		return 0;
 	}
