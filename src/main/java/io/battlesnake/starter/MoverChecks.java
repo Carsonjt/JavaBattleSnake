@@ -121,15 +121,20 @@ public class MoverChecks {
 	public static int nearbyFood(Board b, Point p) {
 		//DIRECT CHECK
 		for(Point food: b.foodLoc) {
-			if(p.equals(food))
+			if(p.equals(food)) {
+				if(b.self.health > 15 && (isOnBorder(b, p) == 0))
+					return 0;
 				return -2;
+			}
 		}
 		for(Point surrounding: MoverUtil.surroundingPoints(b, p)) {
 			
 			if(MoverUtil.isValid(b, surrounding)) {
 				for(Point food: b.foodLoc) {
 					if(surrounding.equals(food)) {
-							return -2;
+						if(b.self.health > 15 && (isOnBorder(b, p) == 0))
+							return 0;
+						return -2;
 					}
 				}
 			}

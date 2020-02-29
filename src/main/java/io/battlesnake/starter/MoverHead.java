@@ -90,7 +90,7 @@ public class MoverHead {
 			System.out.println("BORDER: " + direction + " " + MoverChecks.isOnBorder(b, dPoint));
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnBorder(b, dPoint));
 			//IS NEXT TO BORDER SQUARE
-			System.out.println("NEAR BORDER: " + direction + " " + MoverChecks.isOnBorder(b, dPoint));
+			System.out.println("NEAR BORDER: " + direction + " " + MoverChecks.isNextToBorder(b, dPoint));
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isNextToBorder(b, dPoint));
 			//IS CORNER SQUARE
 			System.out.println("CORNER: " + direction + " " + MoverChecks.isOnCorner(b, dPoint));
