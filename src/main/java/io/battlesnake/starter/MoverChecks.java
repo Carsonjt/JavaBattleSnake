@@ -127,13 +127,9 @@ public class MoverChecks {
 		}
 		for(Point surrounding: MoverUtil.surroundingPoints(b, p)) {
 			
-			
 			if(MoverUtil.isValid(b, surrounding)) {
 				for(Point food: b.foodLoc) {
 					if(surrounding.equals(food)) {
-						if(b.self.health < 30)
-							return -3;
-						else
 							return -2;
 					}
 				}
