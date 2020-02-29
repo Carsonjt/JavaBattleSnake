@@ -76,7 +76,7 @@ public class MoverChecks {
 			}
 		}
 		//CHECK FUTURE FORCED COLLISIONS
-		ArrayList<Point> otherMoves = new ArrayList<Point>();
+	/*	ArrayList<Point> otherMoves = new ArrayList<Point>();
 
 		boolean isSafe = true;
 		for(Snake snake: b.snakes) {
@@ -96,6 +96,7 @@ public class MoverChecks {
 								hasSafeMove = true;
 						}
 					}
+					
 					if(!hasSafeMove) {
 						isSafe = false;
 					}
@@ -106,7 +107,7 @@ public class MoverChecks {
 		}
 		if(!isSafe)
 			return 5;
-		
+	*/	
 		return 0;
 	}
 
