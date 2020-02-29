@@ -99,15 +99,21 @@ public class MoverHead {
 	//
 			
 			//CONTAINS FOOD (POSITIVE CHECK)
+			System.out.println("FOOD: " + direction + " " + MoverChecks.nearbyFood(b, dPoint));
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.nearbyFood(b, dPoint));
 			//IS BORDER SQUARE
 			if(b.self.health >= 20)
+			System.out.println("BORDER: " + direction + " " + MoverChecks.isOnBorder(b, dPoint));
 				moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnBorder(b, dPoint));
 			//IS CORNER SQUARE
+			System.out.println("CORNER: " + direction + " " + MoverChecks.isOnCorner(b, dPoint));
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnCorner(b, dPoint));
 			//HAS ENOUGH SPACE
+			System.out.println("SPACE: " + direction + " " + MoverChecks.adjacentSpace(b, dPoint));
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.adjacentSpace(b, dPoint));
 			//HEAD ON COLLISIONS
+			System.out.println("HEAD ON COLLISION: " + direction + " " + MoverChecks.avoidHeadOnCollision(b, dPoint));
+
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidHeadOnCollision(b, dPoint));
 		 }
 	}
