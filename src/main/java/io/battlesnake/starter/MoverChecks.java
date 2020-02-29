@@ -99,7 +99,7 @@ public class MoverChecks {
 				if(left.equals(food))
 					return -1;
 			}
-			return nearbyFood(left);
+			return nearbyFood(b, left);
 		}
 			
 		if(MoverUtil.isValid(b, right)) {
@@ -107,7 +107,7 @@ public class MoverChecks {
 				if(right.equals(food))
 					return -1;
 			}
-			return nearbyFood(right);
+			return nearbyFood(b, right);
 		}
 			
 		if(MoverUtil.isValid(b, up)) {
@@ -115,7 +115,7 @@ public class MoverChecks {
 				if(up.equals(food))
 					return -1;
 			}
-			return nearbyFood(up);
+			return nearbyFood(b, up);
 		}
 	
 		if(MoverUtil.isValid(b, down)) {
@@ -123,7 +123,7 @@ public class MoverChecks {
 				if(down.equals(food))
 					return -1;
 			}
-			return nearbyFood(down);
+			return nearbyFood(b, down);
 		}
 
 		
