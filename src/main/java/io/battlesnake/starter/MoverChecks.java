@@ -79,7 +79,7 @@ public class MoverChecks {
 	}
 
 	public static Point[] surroundingPoints(Board b, Point p) {
-		Point[] points = new Point[4]
+		Point[] points = new Point[4];
 		points[0] = MoverUtil.getLeft(b, p);
 		points[1] = MoverUtil.getRight(b, p);
 		points[2] = MoverUtil.getUp(b, p);
@@ -102,6 +102,7 @@ public class MoverChecks {
 						return -2;
 				}
 			}
+		}
 		return 0;
 	}
 
