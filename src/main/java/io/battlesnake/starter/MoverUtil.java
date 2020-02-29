@@ -37,6 +37,16 @@ public class MoverUtil {
 		//down
 		return new Point((int) b.self.bodyLoc[0].getX(), (int) b.self.bodyLoc[0].getY() + 1);
 	}
+	
+	public static boolean isTail(Board b, Point p) {
+	
+		for(Snake s: b.snakes) {
+			if(s.bodyLoc[s.bodyLoc.length - 1].equals(p))
+				return true;
+		}
+		return false;
+	}
+	
 	public static Point getLeft(Board b, Point p) {
 		return new Point((int) p.getX() - 1,(int) p.getY());
 	}

@@ -46,19 +46,19 @@ public class MoverChecks {
 		Point up = MoverUtil.getUp(b, p);
 		Point down = MoverUtil.getDown(b, p);
 			
-		if(MoverUtil.isValid(b, left) && !tiles.contains(left)) {
+		if((MoverUtil.isValid(b, left) || MoverUtil.isTail(b, left)) && !tiles.contains(left)) {
 			tiles.add(left);
 			adjacentSpaceHelper(b, left);
 		}
-		if(MoverUtil.isValid(b, right) && !tiles.contains(right)) {
+		if((MoverUtil.isValid(b, right) || MoverUtil.isTail(b, right)) && !tiles.contains(right)) {
 			tiles.add(right);
 			adjacentSpaceHelper(b, right);
 		}
-		if(MoverUtil.isValid(b, up) && !tiles.contains(up)) {
+		if((MoverUtil.isValid(b, up) || MoverUtil.isTail(b, up)) && !tiles.contains(up)) {
 			tiles.add(up);
 			adjacentSpaceHelper(b, up);
 		}
-		if(MoverUtil.isValid(b, down) && !tiles.contains(down)) {
+		if((MoverUtil.isValid(b, down) || MoverUtil.isTail(b, down)) && !tiles.contains(down)) {
 			tiles.add(down);
 			adjacentSpaceHelper(b, down);
 		}
@@ -93,7 +93,7 @@ public class MoverChecks {
 		Point up = MoverUtil.getUp(b, p);
 		Point down = MoverUtil.getDown(b, p);
 
-		//RADIUS CHECK (1/2)
+		//RADIUS CHECK 1
 		if(MoverUtil.isValid(b, left)) {
 			for(Point food: b.foodLoc) {
 				if(left.equals(food))
