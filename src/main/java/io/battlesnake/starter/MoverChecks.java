@@ -8,18 +8,26 @@ import java.util.ArrayList;
 public class MoverChecks {
 
 	public static int isOnBorder(Board b, Point p) {
-		if(p.getX() == 0) return 1;
-		if(p.getY() == 0) return 1;
-		if(p.getX() == b.getWidth()) return 1;
-		if(p.getY() == b.getHeight()) return 1;
+		if(p.getX() == 0) return 3;
+		if(p.getY() == 0) return 3;
+		if(p.getX() == b.getWidth()) return 3;
+		if(p.getY() == b.getHeight()) return 3;
 		return 0;
 	}
-	
+
+	public static int isNextToBorder(Board b, Point p) {
+		if(p.getX() == 1) return 1;
+		if(p.getY() == 1) return 1;
+		if(p.getX() == b.getWidth() - 1) return 1;
+		if(p.getY() == b.getHeight() - 1) return 1;
+		return 0;
+	}
+
 	public static int isOnCorner(Board b, Point p) {
-		if((p.getX() == 0) && (p.getY() == 0)) return 3;
-		if((p.getX() == 0) && (p.getY() == b.getHeight())) return 3;
-		if((p.getX() == b.getWidth()) && (p.getY() == 0)) return 3;
-		if((p.getX() == b.getWidth()) && (p.getY() == b.getHeight())) return 3;
+		if((p.getX() == 0) && (p.getY() == 0)) return 4;
+		if((p.getX() == 0) && (p.getY() == b.getHeight())) return 4;
+		if((p.getX() == b.getWidth()) && (p.getY() == 0)) return 4;
+		if((p.getX() == b.getWidth()) && (p.getY() == b.getHeight())) return 4;
 		return 0;
 	}
 
@@ -33,7 +41,7 @@ public class MoverChecks {
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
 		else	
-			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 3;
+			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 5;
 	}
 	
 	public static void adjacentSpaceHelper(Board b, Point p) {
@@ -71,7 +79,7 @@ public class MoverChecks {
 			if(snake.bodyLoc.length >= b.self.bodyLoc.length) {
 				for(Point surrounding: MoverUtil.surroundingPoints(b, p)) {
 					if(snake.bodyLoc[0].equals(surrounding))
-						return 10;
+						return 20;
 				}
 			}
 		}
@@ -122,8 +130,12 @@ public class MoverChecks {
 			
 			if(MoverUtil.isValid(b, surrounding)) {
 				for(Point food: b.foodLoc) {
-					if(surrounding.equals(food))
-						return -2;
+					if(surrounding.equals(food)) {
+						if(b.self.health < 30)
+							return -3;
+						else
+							return -2;
+					}
 				}
 			}
 		}
