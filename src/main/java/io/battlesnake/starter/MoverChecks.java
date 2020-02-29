@@ -33,7 +33,7 @@ public class MoverChecks {
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
 		else
-			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 3;
+			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 5;
 	}
 	
 	public static void adjacentSpaceHelper(Board b, Point p) {
