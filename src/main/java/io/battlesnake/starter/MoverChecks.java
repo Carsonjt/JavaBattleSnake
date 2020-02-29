@@ -32,7 +32,7 @@ public class MoverChecks {
 		System.out.println(tiles);
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
-		else
+		else	
 			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 3;
 	}
 	
@@ -69,17 +69,22 @@ public class MoverChecks {
 		
 		for(Snake snake: b.snakes) {
 			if(snake.bodyLoc.length >= b.self.bodyLoc.length) {
-				if(snake.bodyLoc[0].equals(MoverUtil.getRight(b, p)))
-					return 10;
-				if(snake.bodyLoc[0].equals(MoverUtil.getDown(b, p)))
-					return 10;
-				if(snake.bodyLoc[0].equals(MoverUtil.getLeft(b, p)))
-					return 10;
-				if(snake.bodyLoc[0].equals(MoverUtil.getUp(b, p)))
-					return 10;
+				for(Point surrounding: MoverUtil.surroundingPoints(p)) {
+					if(snake.bodyLoc[0].equals(surrounding))
+						return 10;
+				}
 			}
 		}
 		return 0;
+	}
+
+	public static Point[] surroundingPoints(Board b, Point p) {
+		Point[] points = new Point[4]
+		points[0] = MoverUtil.getLeft(b, p);
+		points[1] = MoverUtil.getRight(b, p);
+		points[2] = MoverUtil.getUp(b, p);
+		points[3] = MoverUtil.getDown(b, p);
+		return points;
 	}
 
 	public static int nearbyFood(Board b, Point p) {
@@ -88,46 +93,15 @@ public class MoverChecks {
 			if(p.equals(food))
 				return -2;
 		}
-		Point left = MoverUtil.getLeft(b, p);
-		Point right = MoverUtil.getRight(b, p);
-		Point up = MoverUtil.getUp(b, p);
-		Point down = MoverUtil.getDown(b, p);
-
-		//RADIUS CHECK 1
-		if(MoverUtil.isValid(b, left)) {
-			for(Point food: b.foodLoc) {
-				if(left.equals(food))
-					return -2;
-			}
-//			return nearbyFood(b, left);
-		}
+		for(Point surrounding: MoverUtil.surroundingPoints(b, p)) {
 			
-		if(MoverUtil.isValid(b, right)) {
-			for(Point food: b.foodLoc) {
-				if(right.equals(food))
-					return -2;
-			}
-//			return nearbyFood(b, right);
-		}
 			
-		if(MoverUtil.isValid(b, up)) {
-			for(Point food: b.foodLoc) {
-				if(up.equals(food))
-					return -2;
+			if(MoverUtil.isValid(b, surrounding)) {
+				for(Point food: b.foodLoc) {
+					if(surrounding.equals(food))
+						return -2;
+				}
 			}
-//			return nearbyFood(b, up);
-		}
-	
-		if(MoverUtil.isValid(b, down)) {
-			for(Point food: b.foodLoc) {
-				if(down.equals(food))
-					return -2;
-			}
-//			return nearbyFood(b, down);
-		}
-
-		
-
 		return 0;
 	}
 
