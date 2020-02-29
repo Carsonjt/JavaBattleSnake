@@ -8,18 +8,18 @@ import java.util.ArrayList;
 public class MoverChecks {
 
 	public static int isOnBorder(Board b, Point p) {
-		if(p.getX() == 0) return 3;
-		if(p.getY() == 0) return 3;
-		if(p.getX() == b.getWidth()) return 3;
-		if(p.getY() == b.getHeight()) return 3;
+		if(p.getX() == 0) return 1;
+		if(p.getY() == 0) return 1;
+		if(p.getX() == b.getWidth()) return 1;
+		if(p.getY() == b.getHeight()) return 1;
 		return 0;
 	}
 	
 	public static int isOnCorner(Board b, Point p) {
-		if((p.getX() == 0) && (p.getY() == 0)) return 4;
-		if((p.getX() == 0) && (p.getY() == b.getHeight())) return 4;
-		if((p.getX() == b.getWidth()) && (p.getY() == 0)) return 4;
-		if((p.getX() == b.getWidth()) && (p.getY() == b.getHeight())) return 4;
+		if((p.getX() == 0) && (p.getY() == 0)) return 3;
+		if((p.getX() == 0) && (p.getY() == b.getHeight())) return 3;
+		if((p.getX() == b.getWidth()) && (p.getY() == 0)) return 3;
+		if((p.getX() == b.getWidth()) && (p.getY() == b.getHeight())) return 3;
 		return 0;
 	}
 
@@ -33,7 +33,7 @@ public class MoverChecks {
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
 		else
-			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 8;
+			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 3;
 	}
 	
 	public static void adjacentSpaceHelper(Board b, Point p) {
@@ -50,13 +50,13 @@ public class MoverChecks {
 			tiles.add(left);
 			adjacentSpaceHelper(b, left);
 		}
-		if((MoverUtil.isValid(b, right) || MoverUtil.isTail(b, right)) && !tiles.contains(right)) {
+		if((MoverUtil.isValid(b, left) || MoverUtil.isTail(b, left)) && !tiles.contains(left)) {
 			tiles.add(right);
 			adjacentSpaceHelper(b, right);
 		}
-		if((MoverUtil.isValid(b, up) || MoverUtil.isTail(b, up)) && !tiles.contains(up)) {
-			tiles.add(up);
-			adjacentSpaceHelper(b, up);
+		if((MoverUtil.isValid(b, left) || MoverUtil.isTail(b, left)) && !tiles.contains(left)) {
+			tiles.add(left);
+			adjacentSpaceHelper(b, left);
 		}
 		if((MoverUtil.isValid(b, down) || MoverUtil.isTail(b, down)) && !tiles.contains(down)) {
 			tiles.add(down);
@@ -86,7 +86,7 @@ public class MoverChecks {
 		//DIRECT CHECK
 		for(Point food: b.foodLoc) {
 			if(p.equals(food))
-				return -2;
+				return -1;
 		}
 		Point left = MoverUtil.getLeft(b, p);
 		Point right = MoverUtil.getRight(b, p);
