@@ -46,19 +46,19 @@ public class MoverChecks {
 		Point up = MoverUtil.getUp(b, p);
 		Point down = MoverUtil.getDown(b, p);
 			
-		if((MoverUtil.isValid(b, left) || MoverUtil.isTail(b, left)) && !tiles.contains(left)) {
+		if(MoverUtil.isValid(b, left) && !tiles.contains(left)) {
 			tiles.add(left);
 			adjacentSpaceHelper(b, left);
 		}
-		if((MoverUtil.isValid(b, left) || MoverUtil.isTail(b, left)) && !tiles.contains(left)) {
+		if(MoverUtil.isValid(b, left) && !tiles.contains(left)) {
 			tiles.add(right);
 			adjacentSpaceHelper(b, right);
 		}
-		if((MoverUtil.isValid(b, left) || MoverUtil.isTail(b, left)) && !tiles.contains(left)) {
+		if(MoverUtil.isValid(b, left) && !tiles.contains(left)) {
 			tiles.add(left);
 			adjacentSpaceHelper(b, left);
 		}
-		if((MoverUtil.isValid(b, down) || MoverUtil.isTail(b, down)) && !tiles.contains(down)) {
+		if(MoverUtil.isValid(b, down) && !tiles.contains(down)) {
 			tiles.add(down);
 			adjacentSpaceHelper(b, down);
 		}
