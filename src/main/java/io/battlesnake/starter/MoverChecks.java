@@ -37,7 +37,6 @@ public class MoverChecks {
 		tiles = new ArrayList<Point>();
 		adjacentSpaceHelper(b, p);
 		
-		System.out.println(tiles);
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
 		else	
