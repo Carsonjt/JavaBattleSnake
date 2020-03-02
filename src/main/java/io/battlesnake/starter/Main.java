@@ -15,6 +15,7 @@ import static spark.Spark.port;
 import static spark.Spark.post;
 import static spark.Spark.get;
 
+import io.battlesnake.starter.Point;
 import io.battlesnake.starter.JSONParser;
 import io.battlesnake.starter.Board;
 import io.battlesnake.starter.Snake;

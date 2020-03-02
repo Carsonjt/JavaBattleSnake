@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.awt.Point;
+import io.battlesnake.starter.Point;
 import io.battlesnake.starter.Snake;
 import io.battlesnake.starter.Board;
 import io.battlesnake.starter.Board;
@@ -59,18 +59,21 @@ public class MoverHead {
 		// REMOVE SPACES THAT WILL DIRECTLY KILL IT (HAS A SNAKE/IS BORDER)
 		ArrayList<String> moves = new ArrayList<String>();
 		
-		Point left = new Point((int) b.self.bodyLoc[0].getX() - 1, (int) b.self.bodyLoc[0].getY());
-		if(MoverUtil.isValid(b, left)) moves.add("left");
+		Point left = b.self.head.getLeft();
+		if(left.isValid())
+			moves.add("left");
 
-		Point right = new Point((int) b.self.bodyLoc[0].getX() + 1, (int) b.self.bodyLoc[0].getY());
-		if(MoverUtil.isValid(b, right)) moves.add("right");
+		Point right = b.self.head.getRight();
+		if(right.isValid())
+			moves.add("right");
 		
-		Point up = new Point((int) b.self.bodyLoc[0].getX(), (int) b.self.bodyLoc[0].getY() - 1);
-		if(MoverUtil.isValid(b, up)) moves.add("up");
+		Point up = b.self.head.getUp();
+		if(up.isValid())
+			moves.add("up");
 		
-		Point down = new Point((int) b.self.bodyLoc[0].getX(), (int) b.self.bodyLoc[0].getY() + 1);
-		if(MoverUtil.isValid(b, down)) moves.add("down");
-		
+		Point down = b.self.head.getDown();
+		if(down.isValid())
+			moves.add("down");
 		return moves;
 	}
 	
@@ -84,22 +87,22 @@ public class MoverHead {
 	//
 			
 			//CONTAINS FOOD (POSITIVE CHECK)
-			System.out.println("FOOD: " + direction + " " + MoverChecks.nearbyFood(b, dPoint));
-			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.nearbyFood(b, dPoint));
+			//System.out.println("FOOD: " + direction + " " + MoverChecks.nearbyFood(dPoint));
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.nearbyFood(dPoint));
 			//IS BORDER SQUARE
-			System.out.println("BORDER: " + direction + " " + MoverChecks.avoidBorder(b, dPoint));
-			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidBorder(b, dPoint));
+			//System.out.println("BORDER: " + direction + " " + MoverChecks.avoidBorder(dPoint));
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidBorder(dPoint));
 			//IS NEXT TO BORDER SQUARE
 			//IS CORNER SQUARE
-			System.out.println("CORNER: " + direction + " " + MoverChecks.isOnCorner(b, dPoint));
-			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnCorner(b, dPoint));
+			//System.out.println("CORNER: " + direction + " " + MoverChecks.isOnCorner(dPoint));
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnCorner(dPoint));
 			//HAS ENOUGH SPACE
-			System.out.println("SPACE: " + direction + " " + MoverChecks.adjacentSpace(b, dPoint));
-			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.adjacentSpace(b, dPoint));
+			//System.out.println("SPACE: " + direction + " " + MoverChecks.adjacentSpace(dPoint));
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.adjacentSpace(dPoint));
 			//HEAD ON COLLISIONS
-			System.out.println("HEAD ON COLLISION: " + direction + " " + MoverChecks.avoidHeadOnCollision(b, dPoint));
+			//System.out.println("HEAD ON COLLISION: " + direction + " " + MoverChecks.avoidHeadOnCollision(dPoint));
 
-			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidHeadOnCollision(b, dPoint));
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidHeadOnCollision(dPoint));
 		 }
 	}
 	

@@ -1,6 +1,6 @@
 package io.battlesnake.starter;
 
-import java.awt.Point;
+import io.battlesnake.starter.Point;
 
 public class Board {
 	

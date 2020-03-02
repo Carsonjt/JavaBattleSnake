@@ -1,82 +1,66 @@
 package io.battlesnake.starter;
 
-import java.awt.Point;
+import io.battlesnake.starter.Point;
 import io.battlesnake.starter.Snake;
 import io.battlesnake.starter.Board;
 import java.util.ArrayList;
 
 public class MoverChecks {
 
-	public static int avoidBorder(Board b, Point p) {
-		if(p.getX() == 0) return 1;
-		if(p.getY() == 0) return 1;
-		if(p.getX() == b.getWidth()) return 1;
-		if(p.getY() == b.getHeight()) return 1;
-		
-		//if(p.getX() == 1) return 1;
-		//if(p.getY() == 1) return 1;
-		//if(p.getX() == b.getWidth() - 1) return 1;
-		//if(p.getY() == b.getHeight() - 1) return 1;
-		
+	public static int avoidBorder(Point p) {
+		if(p.isOnBorder())
+			return 1;
 		return 0;
 	}
 
-	public static int isOnCorner(Board b, Point p) {
-		if((p.getX() == 0) && (p.getY() == 0)) return 3;
-		if((p.getX() == 0) && (p.getY() == b.getHeight())) return 3;
-		if((p.getX() == b.getWidth()) && (p.getY() == 0)) return 3;
-		if((p.getX() == b.getWidth()) && (p.getY() == b.getHeight())) return 3;
+	public static int isOnCorner(Point p) {
+		if(p.isOnCorner())
+			return 3;
 		return 0;
 	}
 
 	static ArrayList<Point> tiles = new ArrayList<Point>();
-	
-	public static int adjacentSpace(Board b, Point p) {
+	public static int adjacentSpace(Point p) {
 		tiles = new ArrayList<Point>();
-		adjacentSpaceHelper(b, p);
+		adjacentSpaceHelper(p);
 		
-		if(tiles.size() >= b.self.bodyLoc.length / 2)
+		if(tiles.size() >= p.b.self.bodyLoc.length / 2)
 			return 0;
 		else	
-			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 5;
+			return ((p.b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 5;
 	}
 	
-	public static void adjacentSpaceHelper(Board b, Point p) {
+	public static void adjacentSpaceHelper(Point p) {
 
-		if(tiles.size() >= b.self.bodyLoc.length / 2)
+		if(tiles.size() >= p.b.self.bodyLoc.length / 2)
 			return;
 
-		Point left = MoverUtil.getLeft(b, p);
-		Point right = MoverUtil.getRight(b, p);
-		Point up = MoverUtil.getUp(b, p);
-		Point down = MoverUtil.getDown(b, p);
-			
-		if(MoverUtil.isValid(b, left) && !tiles.contains(left)) {
-			tiles.add(left);
-			adjacentSpaceHelper(b, left);
+		if((p.getLeft().isValid()) && !tiles.contains(p.getLeft())) {
+			tiles.add(p.getLeft());
+			adjacentSpaceHelper(p.getLeft());
 		}
-		if(MoverUtil.isValid(b, right) && !tiles.contains(right)) {
-			tiles.add(right);
-			adjacentSpaceHelper(b, right);
+		if((p.getRight().isValid()) && !tiles.contains(p.getRight())) {
+			tiles.add(p.getRight());
+			adjacentSpaceHelper(p.getRight());
 		}
-		if(MoverUtil.isValid(b, up) && !tiles.contains(up)) {
-			tiles.add(up);
-			adjacentSpaceHelper(b, up);
+		if((p.getUp().isValid()) && !tiles.contains(p.getUp())) {
+			tiles.add(p.getUp());
+			adjacentSpaceHelper(p.getUp());
 		}
-		if(MoverUtil.isValid(b, down) && !tiles.contains(down)) {
-			tiles.add(down);
-			adjacentSpaceHelper(b, down);
+		if((p.getDown().isValid()) && !tiles.contains(p.getDown())) {
+			tiles.add(p.getDown());
+			adjacentSpaceHelper(p.getDown());
 		}
 		return;
 	}
 
-	public static int avoidHeadOnCollision(Board b, Point p) {
+	public static int avoidHeadOnCollision(Point p) {
 		//CHECK DIRECT COLLISIONS
-		for(Snake snake: b.snakes) {
-			if(snake.bodyLoc.length >= b.self.bodyLoc.length) {
-				for(Point surrounding: MoverUtil.surroundingPoints(b, p)) {
+		for(Snake snake: p.b.snakes) {
+			if(snake.bodyLoc.length >= p.b.self.bodyLoc.length) {
+				for(Point surrounding: p.getSurrounding()) {
 					if(snake.bodyLoc[0].equals(surrounding))
-						return 20;
+						return 10;
 				}
 			}
 		}
@@ -116,23 +100,21 @@ public class MoverChecks {
 		return 0;
 	}
 
-	public static int nearbyFood(Board b, Point p) {
+	public static int nearbyFood(Point p) {
 		//DIRECT CHECK
-		for(Point food: b.foodLoc) {
+		for(Point food: p.b.foodLoc) {
 			if(p.equals(food)) {
 				//if(avoidBorder(b, food) == 3)
 				//	return 0;
 				return -2;
 			}
 		}
-		if(b.self.health < 15) {
-			for(Point surrounding: MoverUtil.surroundingPoints(b, p)) {
+		if(p.b.self.health < 15) {
+			for(Point surrounding: p.getSurrounding()) {
 			
-				if(MoverUtil.isValid(b, surrounding)) {
-					for(Point food: b.foodLoc) {
+				if(surrounding.isValid()) {
+					for(Point food: p.b.foodLoc) {
 						if(surrounding.equals(food)) {
-							//if(avoidBorder(b, food) == 3)
-							//	return 0;
 							return -2;
 						}
 					}

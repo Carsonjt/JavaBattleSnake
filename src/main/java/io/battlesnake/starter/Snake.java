@@ -1,12 +1,13 @@
 package io.battlesnake.starter;
 
-import java.awt.Point;
+import io.battlesnake.starter.Point;
 
 public class Snake{
 
 	String id;
 	String name;
 	int health;
+	int length;
 	Point[] bodyLoc;
 	Point head;
 	Point tail;
@@ -17,6 +18,7 @@ public class Snake{
 		this.name = name;
 		this.health = health;
 		bodyLoc = new Point[0];
+		length = 0;
 	}
 
 	public String getID() {
@@ -38,16 +40,15 @@ public class Snake{
 		}
 		newBodyLoc[newBodyLoc.length - 1] = p;
 		this.bodyLoc = newBodyLoc;
+		this.length++;
+		
+		if(length == 1)
+			this.head = p;
+		if(length == 2)
+			this.neck = p;
+		this.tail = p;
+		
 		return;
-	}
-	public void setHead(Point head) {
-		this.head = head;
-	}
-	public void setTail(Point tail) {
-		this.tail = tail;
-	}
-	public void setNeck(Point neck) {
-		this.neck = neck;
 	}
 	public Point getHead() {
 		return head;
