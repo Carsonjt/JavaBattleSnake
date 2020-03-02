@@ -8,15 +8,15 @@ import java.util.ArrayList;
 public class MoverChecks {
 
 	public static int avoidBorder(Board b, Point p) {
-		if(p.getX() == 0) return 2;
-		if(p.getY() == 0) return 2;
-		if(p.getX() == b.getWidth()) return 2;
-		if(p.getY() == b.getHeight()) return 2;
+		if(p.getX() == 0) return 1;
+		if(p.getY() == 0) return 1;
+		if(p.getX() == b.getWidth()) return 1;
+		if(p.getY() == b.getHeight()) return 1;
 		
-		if(p.getX() == 1) return 1;
-		if(p.getY() == 1) return 1;
-		if(p.getX() == b.getWidth() - 1) return 1;
-		if(p.getY() == b.getHeight() - 1) return 1;
+		//if(p.getX() == 1) return 1;
+		//if(p.getY() == 1) return 1;
+		//if(p.getX() == b.getWidth() - 1) return 1;
+		//if(p.getY() == b.getHeight() - 1) return 1;
 		
 		return 0;
 	}
@@ -120,8 +120,8 @@ public class MoverChecks {
 		//DIRECT CHECK
 		for(Point food: b.foodLoc) {
 			if(p.equals(food)) {
-				if(avoidBorder(b, food) == 3)
-					return 0;
+				//if(avoidBorder(b, food) == 3)
+				//	return 0;
 				return -2;
 			}
 		}
@@ -131,8 +131,8 @@ public class MoverChecks {
 				if(MoverUtil.isValid(b, surrounding)) {
 					for(Point food: b.foodLoc) {
 						if(surrounding.equals(food)) {
-							if(avoidBorder(b, food) == 3)
-								return 0;
+							//if(avoidBorder(b, food) == 3)
+							//	return 0;
 							return -2;
 						}
 					}
