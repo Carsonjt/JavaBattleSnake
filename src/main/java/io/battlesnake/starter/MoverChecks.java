@@ -21,7 +21,7 @@ public class MoverChecks {
 
 	static ArrayList<Point> tiles = new ArrayList<Point>();
 	public static int adjacentSpace(Board b, Point p) {
-		tiles = new ArrayList<Point>();
+		tiles.clear();
 		adjacentSpaceHelper(p);
 		
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
