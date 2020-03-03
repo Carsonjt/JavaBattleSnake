@@ -23,7 +23,7 @@ public class MoverChecks {
 	public static int adjacentSpace(Board b, Point p) {
 		tiles.clear();
 		adjacentSpaceHelper(p);
-		
+		System.out.println(tiles);
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
 		else	
@@ -50,7 +50,7 @@ public class MoverChecks {
 		if((p.getDown().isValid()) && !tiles.contains(p.getDown())) {
 			tiles.add(p.getDown());
 			adjacentSpaceHelper(p.getDown());
-		}
+		
 		return;
 	}
 
