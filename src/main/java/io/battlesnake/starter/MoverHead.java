@@ -98,7 +98,7 @@ public class MoverHead {
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnCorner(dPoint));
 			//HAS ENOUGH SPACE
 			//System.out.println("SPACE: " + direction + " " + MoverChecks.adjacentSpace(dPoint));
-			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.adjacentSpace(dPoint));
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.adjacentSpace(b, dPoint));
 			//HEAD ON COLLISIONS
 			//System.out.println("HEAD ON COLLISION: " + direction + " " + MoverChecks.avoidHeadOnCollision(dPoint));
 

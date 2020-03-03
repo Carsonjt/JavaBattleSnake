@@ -1,6 +1,8 @@
 package io.battlesnake.starter;
 
-public class Point {
+import io.battlesnake.starter.PointInterface;
+
+public class Point implements PointInterface {
 	int x;
 	int y;
 	Board b;

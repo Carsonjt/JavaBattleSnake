@@ -20,14 +20,14 @@ public class MoverChecks {
 	}
 
 	static ArrayList<Point> tiles = new ArrayList<Point>();
-	public static int adjacentSpace(Point p) {
+	public static int adjacentSpace(Board b, Point p) {
 		tiles = new ArrayList<Point>();
 		adjacentSpaceHelper(p);
 		
-		if(tiles.size() >= p.b.self.bodyLoc.length / 2)
+		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
 		else	
-			return ((p.b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 5;
+			return ((b.self.bodyLoc.length / 2) - tiles.size()) * 2 + 5;
 	}
 	
 	public static void adjacentSpaceHelper(Point p) {
@@ -64,39 +64,23 @@ public class MoverChecks {
 				}
 			}
 		}
-		//CHECK FUTURE FORCED COLLISIONS
-	/*	ArrayList<Point> otherMoves = new ArrayList<Point>();
-
-		boolean isSafe = true;
-		for(Snake snake: b.snakes) {
-			for(Point other1: MoverUtil.surroundingPoints(b, snake.bodyLoc[0])) {
-				if(MoverUtil.isValid(b, other1)) {
-					otherMoves.clear();
-					for(Point other2: MoverUtil.surroundingPoints(b, other1)) {
-						if(MoverUtil.isValid(b, other2))
-							otherMoves.add(other2);
+		return 0;
+	}
+	
+	public static int avoidForcedHeadOnCollisions(Point p) {
+		ArrayList<PointInterface> points = new ArrayList<PointInterface>();
+		for(Snake snake: p.b.snakes) {
+			if(snake.length >= p.b.self.length) {
+				for(Point snake1: snake.bodyLoc[0].getSurrounding()) {
+					// EACH OTHER SNAKES POSSIBLE MOVES
+					points.clear();
+					for(Point snake2: snake1.getSurrounding()) {
+						points.add(snake2);
 					}
-					
-					//DOESNT HAVE SPACE OR FORCED HEAD ON (CONTAINS OTHERMOVES)
-					boolean hasSafeMove = false;
-					for(Point self: MoverUtil.surroundingPoints(b, p)) {
-						if(MoverUtil.isValid(b, self)) {
-							if(!otherMoves.contains(self)) // ADD CHECK IF HAS ENOUGH SPACE TOO
-								hasSafeMove = true;
-						}
-					}
-					
-					if(!hasSafeMove) {
-						isSafe = false;
-					}
+					System.out.println(points);
 				}
 			}
-			
-			
 		}
-		if(!isSafe)
-			return 5;
-	*/	
 		return 0;
 	}
 
@@ -109,6 +93,7 @@ public class MoverChecks {
 				return -2;
 			}
 		}
+		
 		if(p.b.self.health < 15) {
 			for(Point surrounding: p.getSurrounding()) {
 			
