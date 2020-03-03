@@ -50,7 +50,7 @@ public class MoverChecks {
 		if((p.getDown().isValid()) && !tiles.contains(p.getDown())) {
 			tiles.add(p.getDown());
 			adjacentSpaceHelper(p.getDown());
-		
+		}
 		return;
 	}
 
