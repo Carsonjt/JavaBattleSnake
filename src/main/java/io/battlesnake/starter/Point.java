@@ -79,4 +79,8 @@ public class Point implements PointInterface {
 		points[3] = p.getDown();
 		return points;
 	}
+	
+	public String toString() {
+		return "[" + x + "|" + y + "]";
+	}
 }
