@@ -19,7 +19,7 @@ public class MoverChecks {
 		return 0;
 	}
 
-	static ArrayList<Point> tiles = new ArrayList<Point>();
+	static ArrayList<String> tiles = new ArrayList<String>();
 	public static int adjacentSpace(Board b, Point p) {
 		tiles.clear();
 		adjacentSpaceHelper(p);
@@ -35,20 +35,20 @@ public class MoverChecks {
 		if(tiles.size() >= p.b.self.bodyLoc.length / 2)
 			return;
 
-		if((p.getLeft().isValid()) && !tiles.contains(p.getLeft())) {
-			tiles.add(p.getLeft());
+		if((p.getLeft().isValid()) && !tiles.contains(p.getLeft().x + "|" + p.getLeft().y)) {
+			tiles.add(p.getLeft().x + "|" + p.getLeft().y);
 			adjacentSpaceHelper(p.getLeft());
 		}
-		if((p.getRight().isValid()) && !tiles.contains(p.getRight())) {
-			tiles.add(p.getRight());
+		if((p.getRight().isValid()) && !tiles.contains(p.getRight().x + "|" + p.getRight().y)) {
+			tiles.add(p.getRight().x + "|" + p.getRight().y);
 			adjacentSpaceHelper(p.getRight());
 		}
-		if((p.getUp().isValid()) && !tiles.contains(p.getUp())) {
-			tiles.add(p.getUp());
+		if((p.getUp().isValid()) && !tiles.contains(p.getUp().x + "|" + p.getUp().y)) {
+			tiles.add(p.getUp().x + "|" + p.getUp().y);
 			adjacentSpaceHelper(p.getUp());
 		}
-		if((p.getDown().isValid()) && !tiles.contains(p.getDown())) {
-			tiles.add(p.getDown());
+		if((p.getDown().isValid()) && !tiles.contains(p.getDown().x + "|" + p.getDown().y)) {
+			tiles.add(p.getDown().x + "|" + p.getDown().y);
 			adjacentSpaceHelper(p.getDown());
 		}
 		return;
