@@ -23,7 +23,6 @@ public class MoverChecks {
 	public static int adjacentSpace(Board b, Point p) {
 		tiles.clear();
 		adjacentSpaceHelper(p);
-		System.out.println(tiles);
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
 		else	
@@ -68,16 +67,22 @@ public class MoverChecks {
 	}
 	
 	public static int avoidForcedHeadOnCollisions(Point p) {
-		ArrayList<PointInterface> points = new ArrayList<PointInterface>();
+		ArrayList<String> points = new ArrayList<String>();
 		for(Snake snake: p.b.snakes) {
 			if(snake.length >= p.b.self.length) {
 				for(Point snake1: snake.bodyLoc[0].getSurrounding()) {
 					// EACH OTHER SNAKES POSSIBLE MOVES
 					points.clear();
 					for(Point snake2: snake1.getSurrounding()) {
-						points.add(snake2);
+						points.add(snake2.x + "|" + snake2.y);
 					}
-					System.out.println(points);
+					boolean isInvalid = true;
+					for(Point self: p.getSurrounding()) {
+						if(!points.contains(self.x + "|" + self.y))
+							isInvalid = false;
+					}
+					if(isInvalid)
+						return -5;
 				}
 			}
 		}

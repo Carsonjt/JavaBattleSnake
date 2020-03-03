@@ -103,6 +103,9 @@ public class MoverHead {
 			//System.out.println("HEAD ON COLLISION: " + direction + " " + MoverChecks.avoidHeadOnCollision(dPoint));
 
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidHeadOnCollision(dPoint));
+			
+			//FORCED HEAD ON COLLISION
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidForcedHeadOnCollision(dPoint));
 		 }
 	}
 	
