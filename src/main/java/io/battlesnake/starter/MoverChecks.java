@@ -71,7 +71,6 @@ public class MoverChecks {
 		for(Snake snake: p.b.snakes) {
 			if(snake.length >= p.b.self.length) {
 				for(Point snake1: snake.bodyLoc[0].getSurrounding()) {
-					// EACH OTHER SNAKES POSSIBLE MOVES
 					points.clear();
 					for(Point snake2: snake1.getSurrounding()) {
 						points.add(snake2.x + "|" + snake2.y);
@@ -79,6 +78,7 @@ public class MoverChecks {
 					boolean isInvalid = true;
 					for(Point self: p.getSurrounding()) {
 						if(!points.contains(self.x + "|" + self.y))
+							// TODO: MAKE SURE THERE IS ROOM
 							isInvalid = false;
 					}
 					if(isInvalid)
@@ -93,8 +93,6 @@ public class MoverChecks {
 		//DIRECT CHECK
 		for(Point food: p.b.foodLoc) {
 			if(p.equals(food)) {
-				//if(avoidBorder(b, food) == 3)
-				//	return 0;
 				return -2;
 			}
 		}
