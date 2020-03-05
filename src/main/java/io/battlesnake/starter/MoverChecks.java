@@ -73,7 +73,6 @@ public class MoverChecks {
 		for(Point surrounding: p.getSurrounding()) {
 			if((surrounding.isValid()) && !tiles2.contains(surrounding.x + "|" + surrounding.y)) {
 				for(Snake s: p.b.snakes) {
-					isNext = false;
 					for(Point other1: s.head.getSurrounding()) {
 						if(other1.equals(surrounding))
 							isNext = true;
