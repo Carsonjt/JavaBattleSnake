@@ -126,7 +126,7 @@ public class MoverChecks {
 						}
 					}
 					if(isInvalid)
-						return -5;
+						return 5;
 				}
 			}
 		}
