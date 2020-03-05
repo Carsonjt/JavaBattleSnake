@@ -53,8 +53,6 @@ public class MoverChecks {
 		return;
 	}
 	
-	
-	
 	static ArrayList<String> tiles2 = new ArrayList<String>();
 	public static int possibleAdjacentSpace(Board b, Point p) {
 		tiles2.clear();
@@ -74,7 +72,7 @@ public class MoverChecks {
 			if((surrounding.isValid()) && !tiles2.contains(surrounding.x + "|" + surrounding.y)) {
 				for(Snake s: p.b.snakes) {
 					for(Point other1: s.head.getSurrounding()) {
-						if(other1.equals(surrounding))
+						if(other1.equals(p))
 							isNext = true;
 					}
 				}
@@ -87,9 +85,6 @@ public class MoverChecks {
 		return;
 	}
 	
-	
-	
-
 	public static int avoidHeadOnCollision(Point p) {
 		//CHECK DIRECT COLLISIONS
 		for(Snake snake: p.b.snakes) {
@@ -154,6 +149,7 @@ public class MoverChecks {
 		}
 		return 0;
 	}
+	
 	
 
 }
