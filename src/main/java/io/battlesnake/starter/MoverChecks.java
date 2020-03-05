@@ -115,7 +115,7 @@ public class MoverChecks {
 					for(Point snake2: snake1.getSurrounding()) {
 						points.add(snake2.x + "|" + snake2.y);
 					}
-					System.out.println("SURROUNDING POINTS: " + points);
+					//System.out.println("SURROUNDING POINTS: " + points);
 					
 					boolean isInvalid = true;
 					for(Point self: p.getSurrounding()) {
