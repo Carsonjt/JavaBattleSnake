@@ -52,6 +52,44 @@ public class MoverChecks {
 		}
 		return;
 	}
+	
+	
+	
+	static ArrayList<String> tiles2 = new ArrayList<String>();
+	public static int possibleAdjacentSpace(Board b, Point p) {
+		tiles2.clear();
+		possibleAdjacentSpaceHelper(p);
+		if(tiles.size() >= b.self.bodyLoc.length / 2)
+			return 0;
+		else	
+			return ((b.self.bodyLoc.length / 2) - tiles2.size()) * 2 + 3;
+	}
+	
+	public static void possibleAdjacentSpaceHelper(Point p) {
+
+		if(tiles2.size() >= p.b.self.bodyLoc.length / 2)
+			return;
+
+		for(Point surrounding: p.getSurrounding()) {
+			if((surrounding.isValid()) && !tiles2.contains(surrounding.x + "|" + surrounding.y)) {
+				for(Snake s: p.b.snakes) {
+					boolean isNext = false;
+					for(Point other1: s.head.getSurrounding()) {
+						if(other1.equals(surrounding))
+							isNext = true;
+					}
+				}
+				if(!isNext) {
+					tiles2.add(surrounding.x + "|" + surrounding.y);
+					possibleAdjacentSpaceHelper(surrounding);
+				}
+			}
+		}
+		return;
+	}
+	
+	
+	
 
 	public static int avoidHeadOnCollision(Point p) {
 		//CHECK DIRECT COLLISIONS

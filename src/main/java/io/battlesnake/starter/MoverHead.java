@@ -87,24 +87,19 @@ public class MoverHead {
 	//
 			
 			//CONTAINS FOOD (POSITIVE CHECK)
-			//System.out.println("FOOD: " + direction + " " + MoverChecks.nearbyFood(dPoint));
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.nearbyFood(dPoint));
-			//IS BORDER SQUARE
-			//System.out.println("BORDER: " + direction + " " + MoverChecks.avoidBorder(dPoint));
+			// AVOID BORDER
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidBorder(dPoint));
-			//IS NEXT TO BORDER SQUARE
-			//IS CORNER SQUARE
-			//System.out.println("CORNER: " + direction + " " + MoverChecks.isOnCorner(dPoint));
+			// AVOID CORNER
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnCorner(dPoint));
 			//HAS ENOUGH SPACE
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.adjacentSpace(b, dPoint));
+				// MIGHT GET CUT OFF
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.possibleAdjacentSpace(b, dPoint));
 			//HEAD ON COLLISIONS
-			//System.out.println("HEAD ON COLLISION: " + direction + " " + MoverChecks.avoidHeadOnCollision(dPoint));
-
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidHeadOnCollision(dPoint));
-			
 			//FORCED HEAD ON COLLISION
-			System.out.println("AVOID FORCE HEAD ON: " + direction + " " + MoverChecks.avoidForcedHeadOnCollisions(dPoint));
+			System.out.println("NEW: " + MoverChecks.avoidForcedHeadOnCollisions(dPoint));
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidForcedHeadOnCollisions(dPoint));
 		 }
 	}
