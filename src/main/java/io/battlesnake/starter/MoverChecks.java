@@ -108,16 +108,22 @@ public class MoverChecks {
 		ArrayList<String> points = new ArrayList<String>();
 		for(Snake snake: p.b.snakes) {
 			if(snake.length >= p.b.self.length) {
+				//SNAKE POSSIBLE MOVES
 				for(Point snake1: snake.bodyLoc[0].getSurrounding()) {
 					points.clear();
+					// ADD SURROUNDING POSSIBLE MOVES
 					for(Point snake2: snake1.getSurrounding()) {
 						points.add(snake2.x + "|" + snake2.y);
 					}
+					System.out.println("SURROUNDING POINTS: " + points);
+					
 					boolean isInvalid = true;
 					for(Point self: p.getSurrounding()) {
-						if(!points.contains(self.x + "|" + self.y))
-							// TODO: MAKE SURE THERE IS ROOM
-							isInvalid = false;
+						if(self.isValid()) {
+							if(!points.contains(self.x + "|" + self.y))
+								// TODO: MAKE SURE THERE IS ROOM
+								isInvalid = false;
+						}
 					}
 					if(isInvalid)
 						return -5;
