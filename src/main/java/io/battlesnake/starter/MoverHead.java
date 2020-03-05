@@ -95,7 +95,7 @@ public class MoverHead {
 			//HAS ENOUGH SPACE
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.adjacentSpace(b, dPoint));
 				// MIGHT GET CUT OFF
-			System.out.println("PAS: " + overChecks.possibleAdjacentSpace(b, dPoint));
+			System.out.println("PAS: " + MoverChecks.possibleAdjacentSpace(b, dPoint));
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.possibleAdjacentSpace(b, dPoint));
 			//HEAD ON COLLISIONS
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidHeadOnCollision(dPoint));
