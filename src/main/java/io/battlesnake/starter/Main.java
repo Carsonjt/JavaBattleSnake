@@ -114,7 +114,7 @@ public class Main {
          */
         public Map<String, String> start(JsonNode startRequest) {
             Map<String, String> response = new HashMap<>();
-            response.put("color", "#f1f1f1");
+            response.put("color", "#ff00ff");
 			response.put("headType", "bwc-bonhomme");
 			response.put("tailType", "bwc-bonhomme");
             return response;
