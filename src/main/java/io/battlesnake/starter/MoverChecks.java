@@ -134,11 +134,15 @@ public class MoverChecks {
 				for(Point aroundFood: food.getSurrounding()) {
 					for(Snake snakes: p.b.snakes) {
 						if(snakes.head.equals(aroundFood))
-							if(p.b.self.length >= 8 && p.b.self.health > 30)
-								return 0;
 							return 1;
 					}
 				}
+				
+				if(p.b.self.length >= 8 && p.b.self.health > 30) {
+					if(p.isOnBorder())
+						return 0;
+				}
+
 				return -2;
 			}
 		}
