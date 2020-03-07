@@ -128,7 +128,7 @@ public class MoverChecks {
 	}
 
 	public static int nearbyFood(Point p) {
-		//DIRECT CHECK
+		//RAD 1
 		for(Point food: p.b.foodLoc) {
 			if(p.equals(food)) {
 				for(Point aroundFood: food.getSurrounding()) {
@@ -140,10 +140,9 @@ public class MoverChecks {
 				return -2;
 			}
 		}
-		
+		//RAD 2
 		if(p.b.self.health < 15) {
 			for(Point surrounding: p.getSurrounding()) {
-			
 				if(surrounding.isValid()) {
 					for(Point food: p.b.foodLoc) {
 						if(surrounding.equals(food)) {
@@ -151,7 +150,23 @@ public class MoverChecks {
 						}
 					}
 				}
-			}	
+			}
+		}
+		//RAD 3
+		if(p.b.self.health < 8) {
+			for(Point surrounding1: p.getSurrounding()) {
+				if(surrounding1.isValid()) {
+					for(Point surrounding2: surrounding1.getSurrounding()) {		
+						if(surrounding2.isValid()) {
+							for(Point food: p.b.foodLoc) {
+								if(surrounding2.equals(food)) {
+									return -2;
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 		return 0;
 	}
