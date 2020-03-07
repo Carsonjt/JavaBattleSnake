@@ -8,7 +8,6 @@ import java.util.Map;
 import io.battlesnake.starter.Point;
 import io.battlesnake.starter.Snake;
 import io.battlesnake.starter.Board;
-import io.battlesnake.starter.Board;
 
 public class MoverHead {
 	static HashMap<String, Integer> moveValues;
@@ -78,31 +77,33 @@ public class MoverHead {
 	}
 	
 	public static void calcDangerValues(Board b) {
-		// LOOP FOR EACH AVAILABLE MOVE
+	// LOOP FOR EACH AVAILABLE MOVE
 		for (Map.Entry<String, Integer> entry : moveValues.entrySet()) {
 			String direction = entry.getKey();
             Point dPoint = MoverUtil.getPoint(b, direction); 
 	//
 	// ADD ALL DANGER CHECKS HERE
 	//
+			// CUT OFF SNAKES STUCK ON BORDER (POSITIVE ATTACK CHECK)
 			
-			//CONTAINS FOOD (POSITIVE CHECK)
+			// CONTAINS FOOD (POSITIVE CHECK)
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.nearbyFood(dPoint));
 			// AVOID BORDER
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidBorder(dPoint));
 			// AVOID CORNER
-			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.isOnCorner(dPoint));
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidCorner(dPoint));
 			//HAS ENOUGH SPACE
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.adjacentSpace(b, dPoint));
 				// MIGHT GET CUT OFF
-			System.out.println("PAS: " + MoverChecks.possibleAdjacentSpace(b, dPoint));
+			//System.out.println("PAS: " + MoverChecks.possibleAdjacentSpace(b, dPoint));
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.possibleAdjacentSpace(b, dPoint));
 			//HEAD ON COLLISIONS
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidHeadOnCollision(dPoint));
 			//FORCED HEAD ON COLLISION
-			System.out.println("AFHOC: " + MoverChecks.avoidForcedHeadOnCollisions(dPoint));
+			//System.out.println("AFHOC: " + MoverChecks.avoidForcedHeadOnCollisions(dPoint));
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidForcedHeadOnCollisions(dPoint));
 		 }
+		 
 	}
 	
 }

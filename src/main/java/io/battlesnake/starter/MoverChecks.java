@@ -13,7 +13,7 @@ public class MoverChecks {
 		return 0;
 	}
 
-	public static int isOnCorner(Point p) {
+	public static int avoidCorner(Point p) {
 		if(p.isOnCorner())
 			return 3;
 		return 0;
@@ -131,6 +131,12 @@ public class MoverChecks {
 		//DIRECT CHECK
 		for(Point food: p.b.foodLoc) {
 			if(p.equals(food)) {
+				for(Point aroundFood: food.getSurrounding()) {
+					for(Snake snakes: p.b.snakes) {
+						if(snakes.head.equals(aroundFood))
+							return 1;
+					}
+				}
 				return -2;
 			}
 		}
@@ -150,6 +156,19 @@ public class MoverChecks {
 		return 0;
 	}
 	
-	
+	public static int canBorderKill(Board b) {
+		if(b.snakes.length <= 4) {
+			for(Snake snake: b.snakes) {
+				String direction = "none";
+				if(snake.head.isOnBorder()) {
+					
+					if(snake.head.x == 0 || snake.head.x == b.width) {
+					
+					}
+				}
+			}	
+		}
+		return 0;
+	}
 
 }
