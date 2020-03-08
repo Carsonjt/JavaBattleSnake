@@ -223,6 +223,7 @@ public class MoverChecks {
 	public static int nonBorderSpace(Board b, Point p) {
 		tiles3.clear();
 		nonBorderSpaceHelper(p);
+		System.out.println(tiles3);
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
 		else	
