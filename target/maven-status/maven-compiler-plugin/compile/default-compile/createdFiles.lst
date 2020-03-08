@@ -3,7 +3,6 @@ io\battlesnake\starter\Main.class
 io\battlesnake\starter\Point.class
 io\battlesnake\starter\JSONParser.class
 io\battlesnake\starter\Main$Handler.class
-io\battlesnake\starter\PointInterface.class
 io\battlesnake\starter\MoverChecks.class
 io\battlesnake\starter\Snake.class
 io\battlesnake\starter\MoverUtil.class

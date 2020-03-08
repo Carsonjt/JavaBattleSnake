@@ -20,6 +20,7 @@ public class MoverChecks {
 	}
 
 	static ArrayList<String> tiles = new ArrayList<String>();
+	static boolean willOpen;
 	public static int adjacentSpace(Board b, Point p) {
 		tiles.clear();
 		adjacentSpaceHelper(p);
@@ -53,17 +54,58 @@ public class MoverChecks {
 		return;
 	}
 	
+/*	public static int isTrap(Board b, Point p) {
+		tiles.clear();
+		willOpen = true;
+		isTrapHelper(p);
+		if(willOpen)
+			return 2;
+		
+		if(tiles.size() >= b.self.bodyLoc.length)
+			return 0;
+		else	
+			return ((b.self.bodyLoc.length) - tiles.size()) + 5;
+	}
+	
+	public static void isTrapHelper(Point p) {
+
+		if(tiles.size() >= p.b.self.bodyLoc.length)
+			return;
+		
+		for(Point surrounding: p.getSurrounding()) {
+			if(!tiles.contains(surrounding.x + "|" + surrounding.y) {
+				if(surrounding.isValid()) {
+					tiles.add(surrounding.x + "|" + surrounding.y);
+					possibleTrapsHelper(surrounding);
+				} else {
+					//IF IS A SNAKE, IF DISTANCE FROM IS GREATER THAN DISTANCE FROM TAIL (SNAKE LENGTH - INDEX)
+					if(!surrounding.isInMap())
+						continue;
+					
+					Snake snake = MoverUtil.getSnakeOn(surrounding);
+					
+					
+					if(MoverUtil.distanceBetween(b.p, p.b.self.head, surrounding) > DISTANCE FROM TAIL (SNAKE LENGTH - INDEX) {
+						tiles.add(surrounding.x + "|" + surrounding.y);
+						possibleTrapsHelper(surrounding);
+					}
+				}
+			}
+		}
+		return;
+	}*/
+
 	static ArrayList<String> tiles2 = new ArrayList<String>();
-	public static int possibleAdjacentSpace(Board b, Point p) {
+	public static int possibleTraps(Board b, Point p) {
 		tiles2.clear();
-		possibleAdjacentSpaceHelper(p);
+		possibleTrapsHelper(p);
 		if(tiles.size() >= b.self.bodyLoc.length / 2)
 			return 0;
 		else	
 			return ((b.self.bodyLoc.length / 2) - tiles2.size()) * 2 + 3;
 	}
 	
-	public static void possibleAdjacentSpaceHelper(Point p) {
+	public static void possibleTrapsHelper(Point p) {
 
 		if(tiles2.size() >= p.b.self.bodyLoc.length / 2)
 			return;
@@ -78,7 +120,7 @@ public class MoverChecks {
 				}
 				if(!isNext) {
 					tiles2.add(surrounding.x + "|" + surrounding.y);
-					possibleAdjacentSpaceHelper(surrounding);
+					possibleTrapsHelper(surrounding);
 				}
 			}
 		}
@@ -177,7 +219,40 @@ public class MoverChecks {
 		}
 		return 0;
 	}
+	static ArrayList<String> tiles3 = new ArrayList<String>();
+	public static int nonBorderSpace(Board b, Point p) {
+		tiles3.clear();
+		nonBorderSpaceHelper(p);
+		if(tiles.size() >= b.self.bodyLoc.length / 2)
+			return 0;
+		else	
+			return 2;
+	}
 	
+	public static void nonBorderSpaceHelper(Point p) {
+
+		if(tiles3.size() >= p.b.self.bodyLoc.length / 2)
+			return;
+
+		if((p.getLeft().isValid()) && !tiles3.contains(p.getLeft().x + "|" + p.getLeft().y) && !p.getLeft().isOnBorder()) {
+			tiles3.add(p.getLeft().x + "|" + p.getLeft().y);
+			nonBorderSpaceHelper(p.getLeft());
+		}
+		if((p.getRight().isValid()) && !tiles3.contains(p.getRight().x + "|" + p.getRight().y) && !p.getRight().isOnBorder()) {
+			tiles3.add(p.getRight().x + "|" + p.getRight().y);
+			nonBorderSpaceHelper(p.getRight());
+		}
+		if((p.getUp().isValid()) && !tiles3.contains(p.getUp().x + "|" + p.getUp().y) && !p.getUp().isOnBorder()) {
+			tiles3.add(p.getUp().x + "|" + p.getUp().y);
+			nonBorderSpaceHelper(p.getUp());
+		}
+		if((p.getDown().isValid()) && !tiles3.contains(p.getDown().x + "|" + p.getDown().y) && !p.getDown().isOnBorder()) {
+			tiles3.add(p.getDown().x + "|" + p.getDown().y);
+			nonBorderSpaceHelper(p.getDown());
+		}
+		return;
+	}
+	//TODO
 	public static int canBorderKill(Board b) {
 		if(b.snakes.length <= 4) {
 			for(Snake snake: b.snakes) {

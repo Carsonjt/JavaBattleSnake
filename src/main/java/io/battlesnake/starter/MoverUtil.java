@@ -33,5 +33,4 @@ public class MoverUtil {
 		int yDist = Math.abs(p1.y - p2.y);
 		return xDist + yDist;
 	}
-	
 }

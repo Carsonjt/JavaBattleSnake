@@ -1,8 +1,6 @@
 package io.battlesnake.starter;
 
-import io.battlesnake.starter.PointInterface;
-
-public class Point implements PointInterface {
+public class Point {
 	int x;
 	int y;
 	Board b;
@@ -82,5 +80,13 @@ public class Point implements PointInterface {
 	
 	public String toString() {
 		return "[" + x + "|" + y + "]";
+	}
+	
+	public boolean isInMap() {
+		if(x < 0) return false;
+		if(y < 0) return false;
+		if(x > b.width) return false;
+		if(y > b.height) return false;
+		return true;
 	}
 }

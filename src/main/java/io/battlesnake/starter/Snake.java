@@ -19,6 +19,7 @@ public class Snake{
 		this.health = health;
 		bodyLoc = new Point[0];
 		length = 0;
+		
 	}
 
 	public String getID() {
