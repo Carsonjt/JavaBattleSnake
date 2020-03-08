@@ -101,7 +101,7 @@ public class MoverHead {
 			//FORCED HEAD ON COLLISION
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidForcedHeadOnCollisions(dPoint));
 			//NON BORDER SPACE
-			moveValues.replace(direction, moveValues.get(direction) + Movechecks.nonBorderSpace(b, dPoint));
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.nonBorderSpace(b, dPoint));
 		 }
 		 
 	}
