@@ -225,11 +225,9 @@ public class MoverChecks {
 		nonBorderSpaceHelper(p);
 		System.out.println(tiles3);
 		if(tiles3.size() >= b.self.bodyLoc.length / 2) {
-			System.out.println("RETURN: 0");
 			return 0;
-		}else{
-			System.out.println("RETURN: 2");
-			return (tiles3.size() / 4);
+		} else {
+			return ((b.self.bodyLoc.length - tiles3.size()) / 4);
 		}
 	}
 	
