@@ -40,14 +40,14 @@ public class MoverHead {
 				returnDirection = entry.getKey();
 			}
 			// RANDOM BEST DECISION
-			//if(entry.getValue() == smallest) {
-			//		Random random = new Random();
-			//		int rand = random.nextInt(2);
-			//		if(rand == 0) {
-			//			smallest = entry.getValue();
-			//			returnDirection = entry.getKey();
-			//		}
-			//}
+			if(entry.getValue() == smallest) {
+					Random random = new Random();
+					int rand = random.nextInt(2);
+					if(rand == 0) {
+						smallest = entry.getValue();
+						returnDirection = entry.getKey();
+					}
+			}
 		}
 		// RETURN LEAST DANGEROUS
 		System.out.println(moveValues);

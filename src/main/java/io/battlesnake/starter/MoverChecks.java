@@ -180,8 +180,10 @@ public class MoverChecks {
 					}
 				}
 				
-				if(!(p.b.self.length >= 8 && p.b.self.health > 30 && p.isOnBorder())) {
+				if(p.b.self.length <= 8 && p.b.self.health < 30) {
 						return -2;
+				else if(p.isOnBorder())
+					return 0;
 				}
 			}
 		}
