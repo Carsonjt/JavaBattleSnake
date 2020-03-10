@@ -100,8 +100,8 @@ public class MoverHead {
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidHeadOnCollision(dPoint));
 			//FORCED HEAD ON COLLISION
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidForcedHeadOnCollisions(dPoint));
-			System.out.println(MoverChecks.avoidForcedMultiHeadOnCollisions(dPoint));
-			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidForcedMultiHeadOnCollisions(dPoint));
+			System.out.println(MoverChecks.avoidMultiForcedHeadOnCollisions(dPoint));
+			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.avoidMultiForcedHeadOnCollisions(dPoint));
 
 			//NON BORDER SPACE
 			moveValues.replace(direction, moveValues.get(direction) + MoverChecks.nonBorderSpace(b, dPoint));
